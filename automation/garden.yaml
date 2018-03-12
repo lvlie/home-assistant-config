@@ -1,0 +1,28 @@
+- alias: Turn on garden lights at sunset
+  id: turnongarden
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:30:00
+  action:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Achtertuin"
+      scene_name: "Aan"
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Voortuin"
+      scene_name: "Aan"
+- alias: Turn off garden lights at sunrise
+  id: turnoffgarden
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 00:15:00
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: light.Voortuin
+  - service: homeassistant.turn_off
+    data:
+      entity_id: light.Achtertuin

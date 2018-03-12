@@ -1,0 +1,83 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: metric
+  time_zone: !secret time_zone
+
+frontend:
+
+config:
+
+http:
+  api_password: !secret api_password
+  base_url: !secret base_url
+
+discovery:
+
+conversation:
+
+history:
+
+logbook:
+
+sun:
+
+tts:
+  - platform: google
+    language: !secret language
+
+group: !include groups.yaml
+automation: !include_dir_merge_list automation/
+
+media_player:
+  - platform: plex
+  - platform: sonos
+  - platform: webostv
+    host: !secret tvhost
+    name: Living Room TV  
+    timeout: 5
+    file: webostv.conf
+
+sensor:
+  - platform: sabnzbd
+    host: !secret nashost
+    port: !secret sabport
+    api_key: !secret sabapi_key
+    monitored_variables:
+      - 'current_status'
+      - 'speed'
+  - platform: cert_expiry
+    host: !secret certhost
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+  - platform: buienradar
+    name: !secret city
+    latitude: !secret brlat
+    longitude: !secret brlong
+    monitored_conditions:
+      - symbol
+      - humidity
+      - temperature
+      - windspeed
+      - pressure
+
+nest:
+  client_id: !secret nestid
+  client_secret: !secret nestsecret
+  sensors:
+    monitored_conditions:
+      - 'temperature'
+      - 'target'
+      - 'co_status'
+      - 'smoke_status'
+
+device_tracker:
+  - platform: unifi
+    host: !secret nashost
+    verify_ssl: False
+    username: !secret unifiid
+    password: !secret unifipw
