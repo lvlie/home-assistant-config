@@ -1,9 +1,10 @@
 - alias: Turn on garden lights at sunset
   id: turnongarden
   trigger:
-  - platform: sun
-    event: sunset
-    offset: -00:30:00
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 2.0
   action:
   - service: hue.hue_activate_scene
     data:
@@ -16,9 +17,10 @@
 - alias: Turn off garden lights at sunrise
   id: turnoffgarden
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: 00:15:00
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 2.0
   action:
   - service: homeassistant.turn_off
     data:
