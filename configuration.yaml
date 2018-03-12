@@ -31,6 +31,10 @@ tts:
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
 
+hue:
+  bridges:
+    - host: !secret huehost
+
 media_player:
   - platform: plex
   - platform: sonos
