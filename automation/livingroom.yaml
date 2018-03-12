@@ -60,7 +60,7 @@
       group_name: "Woonkamer"
       scene_name: "TV kijken"
 
-- alias: Turn off living room lights at 23:00
+- alias: Turn off living room lights at 2200
   id: turnofflivingroom
   trigger:
   - platform: time
@@ -69,4 +69,4 @@
   - service: homeassistant.turn_off
     data:
       entity_id: light.Woonkamer
-      transition: 1800
+      transition: 300
