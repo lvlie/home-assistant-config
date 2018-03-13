@@ -34,6 +34,8 @@ automation: !include_dir_merge_list automation/
 hue:
   bridges:
     - host: !secret huehost
+      filename: phue.conf
+      allow_hue_groups: true
 
 media_player:
   - platform: plex
