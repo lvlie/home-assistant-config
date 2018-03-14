@@ -87,3 +87,19 @@ device_tracker:
     verify_ssl: False
     username: !secret unifiid
     password: !secret unifipw
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_ha_api
+    allowed_chat_ids:
+      - !secret telegram_chatid
+
+notify:
+  - name: ha_bot
+    platform: telegram
+    chat_id: !secret telegram_chatid
+  - platform: webostv
+    host: !secret tvhost
+    name: livingroom_tv
+    filename: webostv.conf
+
