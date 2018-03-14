@@ -52,3 +52,29 @@
     - service: notify.livingroom_tv
       data:
         message: 'A person was detected on camera voortuin'
+
+- alias: Notify when person detected at night
+  id: notifypersonnight
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voortuin_camera_person_detected
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: light.woonkamer
+      state: 'off'
+    - condition: time
+      after: '23:30:00'
+      before: '05:30:00'
+  action:
+    - service: notify.ha_bot
+      data:
+        message: 'A person was detected on camera voortuin in the middle of the night'
+    - service: light.turn_on
+      data:
+        entity_id: light.keuken_achter
+        flash: long
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken_achter
