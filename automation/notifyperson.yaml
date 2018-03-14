@@ -1,0 +1,54 @@
+- alias: Notify when person detected and someone is home
+  id: notifypersonhome
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voortuin_camera_person_detected
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: home
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer_centraal
+        flash: short
+    - service: light.turn_off
+      data:
+        entity_id: light.woonkamer_centraal
+
+- alias: Notify when person detected and no-one is home
+  id: notifypersonnothome
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voortuin_camera_person_detected
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: not_home
+  action:
+    - service: notify.ha_bot
+      data:
+        message: 'A person was detected on camera voortuin'
+
+- alias: Notify when person detected and TV is on
+  id: notifypersontv
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voortuin_camera_person_detected
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: media_player.living_room_tv
+      state: playing
+  action:
+    - service: notify.livingroom_tv
+      data:
+        message: 'A person was detected on camera voortuin'
