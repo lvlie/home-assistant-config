@@ -1,4 +1,4 @@
-- alias: Turn on garden lights at sunset
+- alias: "[LIGHT]: Turn on garden lights at sunset"
   id: turnongarden
   trigger:
     platform: numeric_state
@@ -14,7 +14,7 @@
     data:
       group_name: "Voortuin"
       scene_name: "Aan"
-- alias: Turn off garden lights at sunrise
+- alias: "[LIGHT]: Turn off garden lights at sunrise"
   id: turnoffgarden
   trigger:
     platform: numeric_state

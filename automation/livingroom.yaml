@@ -1,4 +1,4 @@
-- alias: Timed Turn on dinner lights at 1700
+- alias: [LIGHT]: Timed Turn on dinner lights at 1700"
   id: timedturnondinner
   trigger:
   - platform: time
@@ -12,7 +12,7 @@
       group_name: "Woonkamer"
       scene_name: "Eten"
 
-- alias: Timed Turn on TV lights at 1900
+- alias: "[LIGHT]: Timed Turn on TV lights at 1900"
   id: timedturnontv
   trigger:
   - platform: time
@@ -26,7 +26,7 @@
       group_name: "Woonkamer"
       scene_name: "TV kijken"
 
-- alias: Triggered Turn on dinner lights at sunset
+- alias: "[LIGHT]: Triggered Turn on dinner lights at sunset"
   id: tiggeredturnondinner
   trigger:
     platform: numeric_state
@@ -43,7 +43,7 @@
       group_name: "Woonkamer"
       scene_name: "Eten"
 
-- alias: Triggered Turn on TV lights at sunset
+- alias: "[LIGHT]: Triggered Turn on TV lights at sunset"
   id: tiggeredturnontv
   trigger:
     platform: numeric_state
@@ -60,7 +60,7 @@
       group_name: "Woonkamer"
       scene_name: "TV kijken"
 
-- alias: Turn off living room lights at 2200
+- alias: "[LIGHT]: Turn off living room lights at 2200"
   id: turnofflivingroom
   trigger:
   - platform: time

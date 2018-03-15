@@ -1,4 +1,4 @@
-- alias: Notify when person detected and someone is home
+- alias: "[SECURITY]: Notify when person detected and someone is home"
   id: notifypersonhome
   trigger:
     platform: state
@@ -21,7 +21,7 @@
       data:
         entity_id: light.woonkamer_centraal
 
-- alias: Notify when person detected and no-one is home
+- alias: "[SECURITY]: Notify when person detected and no-one is home"
   id: notifypersonnothome
   trigger:
     platform: state
@@ -37,7 +37,7 @@
       data:
         message: 'A person was detected on camera voortuin'
 
-- alias: Notify when person detected and TV is on
+- alias: "[SECURITY]: Notify when person detected and TV is on"
   id: notifypersontv
   trigger:
     platform: state
@@ -53,7 +53,7 @@
       data:
         message: 'A person was detected on camera voortuin'
 
-- alias: Notify when person detected at night
+- alias: "[SECURITY]: Notify when person detected at night"
   id: notifypersonnight
   trigger:
     platform: state
