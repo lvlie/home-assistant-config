@@ -1,0 +1,11 @@
+- alias: "[WORK]: notify when agenda item starts"
+  id: worknotify
+  trigger:
+    platform: state
+    entity_id: calendar.ing
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.work_bot
+      data:
+        message: "{{ states.calendar.ing.attributes.message }}"
