@@ -3,6 +3,7 @@
 !*.yaml
 !scenes
 !.gitignore
+google_calendars.yaml
 automation/work.yaml
 secrets.yaml
 known_devices.yaml
