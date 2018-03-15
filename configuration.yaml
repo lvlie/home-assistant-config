@@ -93,13 +93,20 @@ telegram_bot:
     api_key: !secret telegram_ha_api
     allowed_chat_ids:
       - !secret telegram_chatid
+      - !secret telegram_workid
 
 notify:
   - name: ha_bot
     platform: telegram
     chat_id: !secret telegram_chatid
+  - name: work_bot
+    platform: telegram
+    chat_id: !secret telegram_workid
   - platform: webostv
     host: !secret tvhost
     name: livingroom_tv
     filename: webostv.conf
 
+google:
+  client_id: !secret gcal_id
+  client_secret: !secret gcal_secret
