@@ -1,4 +1,4 @@
-- alias: [LIGHT]: Timed Turn on dinner lights at 1700"
+- alias: "[LIGHT]: Timed Turn on dinner lights at 1700"
   id: timedturnondinner
   trigger:
   - platform: time
