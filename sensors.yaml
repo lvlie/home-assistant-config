@@ -1,0 +1,43 @@
+- platform: sabnzbd
+  host: !secret nashost
+  port: !secret sabport
+  api_key: !secret sabapi_key
+  monitored_variables:
+    - 'current_status'
+    - 'speed'
+- platform: cert_expiry
+  host: !secret certhost
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+- platform: buienradar
+  name: !secret city
+  latitude: !secret brlat
+  longitude: !secret brlong
+  monitored_conditions:
+    - symbol
+    - humidity
+    - temperature
+    - windspeed
+    - pressure
+- platform: rest
+  resource: !secret huelightgarage
+  value_template: '{{ value_json.state.lightlevel }}'
+  unit_of_measurement: Lux
+  name: 'Garage Lux'
+- platform: rest
+  resource: !secret huetempgarage
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
+  name: 'Garage Temperature'
+- platform: rest
+  resource: !secret huelighttoilet
+  value_template: '{{ value_json.state.lightlevel }}'
+  unit_of_measurement: Lux
+  name: 'Toilet Lux'
+- platform: rest
+  resource: !secret huetemptoilet
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
+  name: 'Toilet Temperature'
