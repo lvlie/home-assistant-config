@@ -70,6 +70,26 @@ sensor:
       - temperature
       - windspeed
       - pressure
+  - platform: rest
+    resource: !secret huelightgarage
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'Garage Lux'
+  - platform: rest
+    resource: !secret huetempgarage
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'Garage Temperature'
+  - platform: rest
+    resource: !secret huelighttoilet
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'Toilet Lux'
+  - platform: rest
+    resource: !secret huetemptoilet
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'Toilet Temperature'
 
 nest:
   client_id: !secret nestid
