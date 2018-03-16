@@ -87,6 +87,9 @@ device_tracker:
     verify_ssl: False
     username: !secret unifiid
     password: !secret unifipw
+    new_device_defaults:
+      track_new_devices: False
+      hide_if_away: False
 
 telegram_bot:
   - platform: polling
