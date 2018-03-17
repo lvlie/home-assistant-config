@@ -1,30 +1,30 @@
 - alias: "[LIGHT]: Timed Turn on dinner lights at 1700"
   id: timedturnondinner
   trigger:
-  - platform: time
+    platform: time
     at: '17:00:00'
   condition:
     condition: sun
     after: sunset
   action:
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Woonkamer"
-      scene_name: "Eten"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Woonkamer"
+        scene_name: "Eten"
 
 - alias: "[LIGHT]: Timed Turn on TV lights at 1900"
   id: timedturnontv
   trigger:
-  - platform: time
+    platform: time
     at: '19:00:00'
   condition:
     condition: sun
     after: sunset
   action:
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Woonkamer"
-      scene_name: "TV kijken"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Woonkamer"
+        scene_name: "TV kijken"
 
 - alias: "[LIGHT]: Triggered Turn on dinner lights at sunset"
   id: tiggeredturnondinner
@@ -38,10 +38,10 @@
     after: '17:00:01'
     before: '18:59:59'
   action:
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Woonkamer"
-      scene_name: "Eten"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Woonkamer"
+        scene_name: "Eten"
 
 - alias: "[LIGHT]: Triggered Turn on TV lights at sunset"
   id: tiggeredturnontv
@@ -55,21 +55,21 @@
     after: '19:00:01'
     before: '22:00:00'
   action:
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Woonkamer"
-      scene_name: "TV kijken"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Woonkamer"
+        scene_name: "TV kijken"
 
 - alias: "[LIGHT]: Turn off living room lights at 2200"
   id: turnofflivingroom
   trigger:
-  - platform: time
+    platform: time
     at: '22:00:00'
   action:
-  - service: light.turn_off
-    data:
-      entity_id: light.Woonkamer
-      transition: 120
+    - service: light.turn_off
+      data:
+        entity_id: light.Woonkamer
+        transition: 120
 
 
 - alias: "[LIGHT]: Turn on light early morning on workdays"
@@ -87,10 +87,10 @@
     - condition: sun
       before: sunrise
   action:
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Woonkamer"
-      scene_name: "Ochtend"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Woonkamer"
+        scene_name: "Ochtend"
 
 
 - alias: "[LIGHT]: Turn off light after sunrise"
@@ -107,7 +107,8 @@
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
       state: 'on'
-  - service: light.turn_off
-    data:
-      entity_id: light.Woonkamer
+  action
+    - service: light.turn_off
+      data:
+        entity_id: light.Woonkamer
       transition: 120

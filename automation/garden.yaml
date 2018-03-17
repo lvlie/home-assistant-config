@@ -6,14 +6,14 @@
     value_template: '{{ state.attributes.elevation }}'
     below: 2.0
   action:
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Achtertuin"
-      scene_name: "Aan"
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Voortuin"
-      scene_name: "Aan"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Achtertuin"
+        scene_name: "Aan"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Voortuin"
+        scene_name: "Aan"
 - alias: "[LIGHT]: Turn off garden lights at sunrise"
   id: turnoffgarden
   trigger:
@@ -22,9 +22,9 @@
     value_template: '{{ state.attributes.elevation }}'
     above: 2.0
   action:
-  - service: homeassistant.turn_off
-    data:
-      entity_id: light.Voortuin
-  - service: homeassistant.turn_off
-    data:
-      entity_id: light.Achtertuin
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.Voortuin
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.Achtertuin
