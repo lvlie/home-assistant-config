@@ -48,20 +48,8 @@
     - windspeed
     - pressure
     - temperature_1d
-    - temperature_2d
-    - temperature_3d
-    - temperature_4d
-    - temperature_5d
     - rainchance_1d
-    - rainchance_2d
-    - rainchance_3d
-    - rainchance_4d
-    - rainchance_5d
     - sunchance_1d
-    - sunchance_2d
-    - sunchance_3d
-    - sunchance_4d
-    - sunchance_5d
 
 - platform: rest
   resource: !secret huelightgarage
