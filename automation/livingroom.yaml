@@ -70,3 +70,44 @@
     data:
       entity_id: light.Woonkamer
       transition: 120
+
+
+- alias: "[LIGHT]: Turn on light early morning on workdays"
+  id: triggeredonmorning
+  trigger:
+    platform: time
+    at: '05:45:00'
+  condition:
+    - condition: state
+      entity_id: light.woonkamer
+      state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+    - condition: sun
+      before: sunrise
+  action:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Woonkamer"
+      scene_name: "Ochtend"
+
+
+- alias: "[LIGHT]: Turn off light after sunrise"
+  id: tiggeredoffmorning
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 3.5
+  condition:
+    - condition: state
+      entity_id: light.woonkamer
+      state: 'on'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+  - service: light.turn_off
+    data:
+      entity_id: light.Woonkamer
+      transition: 120
