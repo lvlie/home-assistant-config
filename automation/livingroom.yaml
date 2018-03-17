@@ -111,4 +111,4 @@
     - service: light.turn_off
       data:
         entity_id: light.Woonkamer
-      transition: 120
+        transition: 120
