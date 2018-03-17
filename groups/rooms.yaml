@@ -1,0 +1,37 @@
+woonkamer:
+  name: Woonkamer
+  view: no
+  entities:
+    - light.tv_links
+    - light.tv_rechts
+    - light.woonkamer_achter
+    - light.woonkamer_centaal
+    - light.eettafel
+    - light.keuken_voor
+    - light.keuken_achter
+
+woonkamer_media:
+  name: Media
+  view: no
+  entities:
+    - media_player.living_room_tv
+    - media_player.woonkamer # sonos
+    - media_player.woonkamer_2 # chromecast
+    - media_player.living_room_home_mini
+
+toilet:
+  name: Toilet
+  view: no
+  entities:
+    - light.toilet_nis
+    - light.toilet_plafond
+    - sensor.toilet_lux
+    - sensor.toilet_temperature
+
+garage:
+  name: Garage
+  view: no
+  entities:
+    - light.garage_centraal
+    - sensor.garage_lux
+    - sensor.garage_temperature

@@ -1,3 +1,9 @@
+camera:
+  name: camera
+  view: no
+  entities:
+    - camera.voortuin
+
 voortuin:
   name: Voortuin
   view: no

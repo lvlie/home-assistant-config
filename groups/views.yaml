@@ -1,3 +1,13 @@
+viewrooms:
+  view: yes
+  icon: mdi:home-outline
+  entities:
+    - group.camera
+    - group.woonkamer
+    - group.woonkamer_media
+    - group.toilet
+    - group.garage
+
 viewtech:
   view: yes
   icon: mdi:desktop-classic
@@ -18,7 +28,7 @@ viewbuiten:
   view: yes
   icon: mdi:flower
   entities:
-    - camera.voortuin
+    - group.camera
     - group.weernu
     - group.forecast
     - group.voortuin
