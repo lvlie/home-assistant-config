@@ -5,22 +5,64 @@
   monitored_variables:
     - 'current_status'
     - 'speed'
+
+- platform: sonarr
+  api_key: !secret sonarrapi_key
+  host: !secret nashost
+  monitored_conditions:
+    - upcoming
+    - wanted
+    - queue
+    - diskspace
+  include_paths:
+    - /data/TV
+  days: 2
+
+- platform: radarr
+  api_key: !secret radarrapi_key
+  host: !secret nashost
+  monitored_conditions:
+    - upcoming
+    - diskspace
+  include_paths:
+    - /data/Movies
+  days: 7
+
 - platform: cert_expiry
   host: !secret certhost
+
 - platform: time_date
   display_options:
     - 'time'
     - 'date'
+
 - platform: buienradar
   name: !secret city
   latitude: !secret brlat
   longitude: !secret brlong
   monitored_conditions:
     - symbol
+    - precipitation
     - humidity
     - temperature
     - windspeed
     - pressure
+    - temperature_1d
+    - temperature_2d
+    - temperature_3d
+    - temperature_4d
+    - temperature_5d
+    - rainchance_1d
+    - rainchance_2d
+    - rainchance_3d
+    - rainchance_4d
+    - rainchance_5d
+    - sunchance_1d
+    - sunchance_2d
+    - sunchance_3d
+    - sunchance_4d
+    - sunchance_5d
+
 - platform: rest
   resource: !secret huelightgarage
   value_template: '{{ value_json.state.lightlevel }}'
@@ -31,6 +73,7 @@
   value_template: '{{ value_json.state.temperature | float / 100 }}'
   unit_of_measurement: °C
   name: 'Garage Temperature'
+
 - platform: rest
   resource: !secret huelighttoilet
   value_template: '{{ value_json.state.lightlevel }}'
@@ -41,3 +84,22 @@
   value_template: '{{ value_json.state.temperature | float / 100 }}'
   unit_of_measurement: °C
   name: 'Toilet Temperature'
+
+- platform: systemmonitor
+  resources:
+    - type: processor_use
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+
+- platform: google_travel_time
+  name: Home to work
+  api_key: !secret gmaps_secret
+  origin: !secret gmaps_home
+  destination: !secret gmaps_work
+
+- platform: google_travel_time
+  name: Work to home
+  api_key: !secret gmaps_secret
+  origin: !secret gmaps_work
+  destination: !secret gmaps_home

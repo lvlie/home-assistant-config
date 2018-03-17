@@ -1,10 +1,13 @@
 homeassistant:
-  name: Home
+  name: Home Assistant
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: !secret elevation
   unit_system: metric
   time_zone: !secret time_zone
+  customize:
+    group.all_devices:
+      hidden: false
 
 frontend:
 
@@ -19,8 +22,15 @@ discovery:
 conversation:
 
 history:
+  exclude:
+    domains:
+      - automation
 
 logbook:
+  exclude:
+    entities:
+      - sensor.date
+      - sensor.time
 
 sun:
 
@@ -90,3 +100,9 @@ notify:
 google:
   client_id: !secret gcal_id
   client_secret: !secret gcal_secret
+
+binary_sensor:
+  - platform: iss
+    show_on_map: True
+  - platform: workday
+    country: NL
