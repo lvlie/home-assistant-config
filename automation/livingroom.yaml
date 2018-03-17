@@ -107,7 +107,7 @@
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
       state: 'on'
-  action
+  action:
     - service: light.turn_off
       data:
         entity_id: light.Woonkamer
