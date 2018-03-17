@@ -1,0 +1,40 @@
+voortuin:
+  name: Voortuin
+  view: no
+  entities:
+    - light.voortuin_garage
+    - binary_sensor.voortuin_camera_online
+    - binary_sensor.voortuin_camera_person_detected
+    - binary_sensor.voortuin_camera__looppad_activity
+    - binary_sensor.voortuin_camera__voortuin_activity
+    - binary_sensor.voortuin_camera__straat_activity
+    - binary_sensor.voortuin_camera_motion_detected
+    - binary_sensor.voortuin_camera_sound_detected
+
+achtertuin:
+  name: Achtertuin
+  view: no
+  entities:
+    - light.achtertuin_gevel
+    - light.overkapping_1
+    - light.overkapping_2
+
+weernu:
+  name: Weer nu
+  view: no
+  entities:
+    - sun.sun
+    - sensor.rotterdam_symbol
+    - sensor.rotterdam_temperature
+    - sensor.rotterdam_precipitation
+    - sensor.rotterdam_wind_speed
+    - sensor.rotterdam_humidity
+    - sensor.rotterdam_pressure
+
+forecast:
+  name: Weer morgen
+  view: no
+  entities:
+    - sensor.rotterdam_temperature_1d
+    - sensor.rotterdam_sunchance_1d
+    - sensor.rotterdam_rainchance_1d

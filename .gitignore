@@ -1,5 +1,6 @@
 *
 !automation/
+!groups/
 !*.yaml
 !scenes
 !.gitignore

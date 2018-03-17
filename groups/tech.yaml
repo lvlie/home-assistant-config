@@ -1,0 +1,47 @@
+web:
+  name: Web
+  view: no
+  entities:
+    - sensor.ssl_certificate_expiry
+
+nas:
+  name: NAS load
+  view: no
+  entities:
+    - sensor.processor_use
+    - sensor.load_1m
+    - sensor.load_5m
+    - sensor.load_15m
+
+iss:
+  name: International Space Station
+  view: no
+  entities:
+    - binary_sensor.iss
+
+download:
+  name: Download tools
+  view: no
+  entities:
+    - sensor.sabnzbd_speed
+    - sensor.sabnzbd_status
+    - sensor.sonarr_queue
+    - sensor.sonarr_wanted
+    - sensor.sonarr_upcoming
+    - sensor.radarr_upcoming
+    - sensor.sonarr_disk_space
+    - sensor.radarr_disk_space
+
+smoke:
+  name: Smoke sensors
+  view: no
+  entities:
+    - binary_sensor.beneden_nest_protect_online
+    - sensor.beneden_nest_protect_co_status
+    - sensor.beneden_nest_protect_smoke_status
+    - binary_sensor.eerste_verdieping_nest_protect_online
+    - sensor.eerste_verdieping_nest_protect_co_status
+    - sensor.eerste_verdieping_nest_protect_smoke_status
+    - binary_sensor.tweede_verdieping_nest_protect_online
+    - sensor.tweede_verdieping_nest_protect_co_status
+    - sensor.tweede_verdieping_nest_protect_smoke_status
