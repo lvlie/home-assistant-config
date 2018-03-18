@@ -107,3 +107,9 @@ binary_sensor:
     show_on_map: True
   - platform: workday
     country: NL
+
+
+input_boolean:
+  vacation:
+    name: Are we on vacation?
+    icon: mdi:routes
