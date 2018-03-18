@@ -54,6 +54,7 @@ tts:
     language: !secret language
 
 group: !include_dir_merge_named groups/
+light: !include lightgroups.yaml
 automation: !include_dir_merge_list automation/
 
 hue:
