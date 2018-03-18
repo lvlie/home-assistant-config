@@ -49,6 +49,7 @@ hue:
 
 media_player:
   - platform: plex
+    entity_namespace: 'plex'
   - platform: sonos
   - platform: webostv
     host: !secret tvhost
