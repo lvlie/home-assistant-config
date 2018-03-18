@@ -1,17 +1,14 @@
 - platform: group
-  name: Voortuin lights
+  name: buiten
   entities:
     - light.voortuin_oprit
-
-- platform: group
-  name: Achtertuin lights
-  entities:
     - light.achtertuin_gevel
     - light.overkapping_1
     - light.overkapping_2
+    - light.garage_centraal
 
 - platform: group
-  name: Woonkamer lights
+  name: tvkamer
   entities:
     - light.tv_links
     - light.tv_rechts
@@ -19,23 +16,25 @@
     - light.woonkamer_centraal
 
 - platform: group
-  name: Eetkamer lights
+  name: eetkamer
   entities:
     - light.eettafel
 
 - platform: group
-  name: Keuken lights
+  name: keuken
   entities:
     - light.keuken_voor
     - light.keuken_achter
 
 - platform: group
-  name: Toilet lights
+  name: beneden
   entities:
+    - light.tv_links
+    - light.tv_rechts
+    - light.woonkamer_achter
+    - light.woonkamer_centraal
+    - light.eettafel
+    - light.keuken_voor
+    - light.keuken_achter
     - light.toilet_nis
     - light.toilet_plafond
-
-- platform: group
-  name: Garage lights
-  entities:
-    - light.garage_centraal
