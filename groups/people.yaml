@@ -2,6 +2,7 @@ inputbool:
   name: Inputs
   view: no
   entities:
+    - input_boolean.disable_automations
     - input_boolean.vacation
 
 presence:
