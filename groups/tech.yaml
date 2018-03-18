@@ -45,3 +45,9 @@ smoke:
     - binary_sensor.tweede_verdieping_nest_protect_online
     - sensor.tweede_verdieping_nest_protect_co_status
     - sensor.tweede_verdieping_nest_protect_smoke_status
+
+plex:
+  name: Plex activity
+  view: no
+  entities: 
+    - sensor.plex

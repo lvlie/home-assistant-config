@@ -15,6 +15,7 @@ viewtech:
     - group.web
     - group.nas
     - group.download
+    - group.plex
     - group.smoke
     - group.iss
 

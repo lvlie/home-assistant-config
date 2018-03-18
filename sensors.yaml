@@ -91,3 +91,7 @@
   api_key: !secret gmaps_secret
   origin: !secret gmaps_work
   destination: !secret gmaps_home
+
+- platform: plex
+  host: !secret nashost
+  token: !secret plextoken
