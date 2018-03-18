@@ -5,6 +5,10 @@
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
     below: 2.0
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
   action:
     - service: hue.hue_activate_scene
       data:
@@ -21,6 +25,10 @@
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
     above: 2.0
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
   action:
     - service: homeassistant.turn_off
       data:

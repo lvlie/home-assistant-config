@@ -7,6 +7,9 @@
     to: 'on'
   condition:
     - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+    - condition: state
       entity_id: group.all_devices
       state: home
     - condition: state
@@ -30,6 +33,9 @@
     to: 'on'
   condition:
     - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+    - condition: state
       entity_id: group.all_devices
       state: not_home
   action:
@@ -46,6 +52,9 @@
     to: 'on'
   condition:
     - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+    - condition: state
       entity_id: media_player.living_room_tv
       state: playing
   action:
@@ -61,6 +70,9 @@
     from: 'off'
     to: 'on'
   condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
     - condition: state
       entity_id: light.woonkamer
       state: 'off'
