@@ -8,6 +8,7 @@ homeassistant:
   customize:
     group.all_devices:
       hidden: false
+      friendly_name: Presence
 
 frontend:
 
@@ -25,6 +26,9 @@ history:
   exclude:
     domains:
       - automation
+      - binary_sensor
+      - calendar
+      - group
 
 logbook:
   exclude:
@@ -33,6 +37,15 @@ logbook:
       - sensor.time
 
 recorder:
+  purge_keep_days: 5
+  exclude:
+    domains:
+      - binary_sensor
+      - calendar
+    entities:
+      - sun.sun 
+      - sensor.date
+      - sensor.time
 
 sun:
 
