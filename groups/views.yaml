@@ -19,10 +19,12 @@ viewtech:
     - group.smoke
     - group.iss
 
-viewpresence:
+viewpeople:
   view: yes
   icon: mdi:account-multiple
   entities:
+    - group.inputbool
+    - group.presence
     - group.all_devices
 
 viewbuiten:

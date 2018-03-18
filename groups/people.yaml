@@ -1,0 +1,11 @@
+inputbool:
+  name: Inputs
+  view: no
+  entities:
+    - input_boolean.vacation
+
+presence:
+  name: Anyone home
+  view: no
+  entities:
+    - group.all_devices
