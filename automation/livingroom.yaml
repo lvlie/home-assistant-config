@@ -71,6 +71,18 @@
         entity_id: light.Woonkamer
         transition: 900
 
+- alias: "[LIGHT]: Turn off kitchen lights at 2030"
+  id: turnofflivingroom
+  trigger:
+    platform: time
+    at: '20:30:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken_voor
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken_achter
 
 - alias: "[LIGHT]: Turn on light early morning on workdays"
   id: triggeredonmorning
