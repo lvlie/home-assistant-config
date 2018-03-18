@@ -8,7 +8,7 @@ voortuin:
   name: Voortuin
   view: no
   entities:
-    - light.voortuin_garage
+    - light.voortuin_oprit
     - binary_sensor.voortuin_camera_online
     - binary_sensor.voortuin_camera_person_detected
     - binary_sensor.voortuin_camera__looppad_activity

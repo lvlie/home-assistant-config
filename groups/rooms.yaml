@@ -5,7 +5,7 @@ woonkamer:
     - light.tv_links
     - light.tv_rechts
     - light.woonkamer_achter
-    - light.woonkamer_centaal
+    - light.woonkamer_centraal
     - light.eettafel
     - light.keuken_voor
     - light.keuken_achter
