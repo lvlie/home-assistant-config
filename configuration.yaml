@@ -32,6 +32,8 @@ logbook:
       - sensor.date
       - sensor.time
 
+recorder:
+
 sun:
 
 tts:
