@@ -73,6 +73,17 @@
   unit_of_measurement: °C
   name: 'Toilet Temperature'
 
+- platform: rest
+  resource: !secret huelightliving
+  value_template: '{{ value_json.state.lightlevel }}'
+  unit_of_measurement: Lux
+  name: 'Woonkamer Lux'
+- platform: rest
+  resource: !secret huetempliving
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
+  name: 'Woonkamer Temperature'
+
 - platform: systemmonitor
   resources:
     - type: processor_use

@@ -9,6 +9,8 @@ woonkamer:
     - light.eettafel
     - light.keuken_voor
     - light.keuken_achter
+    - sensor.woonkamer_lux
+    - sensor.woonkamer_temperature
 
 woonkamer_media:
   name: Media
