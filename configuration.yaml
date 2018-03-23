@@ -28,7 +28,6 @@ history:
       - automation
       - binary_sensor
       - calendar
-      - group
 
 logbook:
   exclude:
