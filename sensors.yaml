@@ -84,6 +84,17 @@
   unit_of_measurement: °C
   name: 'Woonkamer Temperature'
 
+- platform: rest
+  resource: !secret huelighthal
+  value_template: '{{ value_json.state.lightlevel }}'
+  unit_of_measurement: Lux
+  name: 'Hal Lux'
+- platform: rest
+  resource: !secret huetemphal
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
+  name: 'Hal Temperature'
+
 - platform: systemmonitor
   resources:
     - type: processor_use

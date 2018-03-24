@@ -30,6 +30,14 @@ toilet:
     - sensor.toilet_lux
     - sensor.toilet_temperature
 
+hal:
+  name: Hal
+  view: no
+  entities:
+    - light.hal
+    - sensor.hal_lux
+    - sensor.hal_temperature
+
 garage:
   name: Garage
   view: no

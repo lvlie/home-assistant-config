@@ -6,6 +6,7 @@ viewrooms:
     - group.woonkamer
     - group.woonkamer_media
     - group.toilet
+    - group.hal
     - group.garage
 
 viewtech:
