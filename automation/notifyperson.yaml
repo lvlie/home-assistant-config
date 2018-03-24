@@ -2,7 +2,7 @@
   id: notifypersonhome
   trigger:
     platform: state
-    entity_id: binary_sensor.voortuin_camera_person_detected
+    entity_id: binary_sensor.front_yard_camera_person_detected
     from: 'off'
     to: 'on'
   condition:
@@ -28,7 +28,7 @@
   id: notifypersonnothome
   trigger:
     platform: state
-    entity_id: binary_sensor.voortuin_camera_person_detected
+    entity_id: binary_sensor.front_yard_camera_person_detected
     from: 'off'
     to: 'on'
   condition:
@@ -47,7 +47,7 @@
   id: notifypersontv
   trigger:
     platform: state
-    entity_id: binary_sensor.voortuin_camera_person_detected
+    entity_id: binary_sensor.front_yard_camera_person_detected
     from: 'off'
     to: 'on'
   condition:
@@ -66,7 +66,7 @@
   id: notifypersonnight
   trigger:
     platform: state
-    entity_id: binary_sensor.voortuin_camera_person_detected
+    entity_id: binary_sensor.front_yard_camera_person_detected
     from: 'off'
     to: 'on'
   condition:
