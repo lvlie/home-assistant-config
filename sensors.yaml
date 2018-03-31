@@ -47,9 +47,6 @@
     - temperature
     - windspeed
     - pressure
-    - temperature_1d
-    - rainchance_1d
-    - sunchance_1d
 
 - platform: systemmonitor
   resources:

@@ -2,7 +2,7 @@ camera:
   name: camera
   view: no
   entities:
-    - camera.voortuin
+    - camera.front_yard
 
 voortuin:
   name: Voortuin
@@ -36,11 +36,3 @@ weernu:
     - sensor.rotterdam_wind_speed
     - sensor.rotterdam_humidity
     - sensor.rotterdam_pressure
-
-forecast:
-  name: Weer morgen
-  view: no
-  entities:
-    - sensor.rotterdam_temperature_1d
-    - sensor.rotterdam_sunchance_1d
-    - sensor.rotterdam_rainchance_1d
