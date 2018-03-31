@@ -110,3 +110,24 @@
       friendly_name: 'Garage lux'
       value_template: '{{states.sensor.garage_motion_sensor.attributes.lux}}'
       unit_of_measurement: lux
+
+    next_holiday:
+      friendly_name: 'Next holiday'
+      value_template: '{{states.calendar.feestdagen_in_nederland.attributes.message}}'
+      icon_template: mdi:calendar
+    next_race_location:
+      friendly_name: 'Next race location'
+      value_template: '{{states.calendar.formule_1_2018_races.attributes.location}}'
+      icon_template: mdi:calendar
+    next_race_date:
+      friendly_name: 'Next race time'
+      value_template: '{{states.calendar.formule_1_2018_races.attributes.start_time}}'
+      icon_template: mdi:calendar
+    next_event:
+      friendly_name: 'Next event'
+      value_template: '{{states.calendar.personal.attributes.message}}'
+      icon_template: mdi:calendar
+    next_feyenoord:
+      friendly_name: 'Next Feyenoord match'
+      value_template: '{{states.calendar.feyenoord_eredivisie.attributes.message}}'
+      icon_template: mdi:calendar
