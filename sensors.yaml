@@ -112,6 +112,10 @@
       friendly_name: 'Next holiday'
       value_template: '{{states.calendar.feestdagen_in_nederland.attributes.message}}'
       icon_template: mdi:calendar
+    next_holiday_date:
+      friendly_name: 'Next holiday date'
+      value_template: '{{states.calendar.feestdagen_in_nederland.attributes.start_time}}'
+      icon_template: mdi:calendar
     next_race_location:
       friendly_name: 'Next race location'
       value_template: '{{states.calendar.formule_1_2018_races.attributes.location}}'
@@ -124,7 +128,15 @@
       friendly_name: 'Next event'
       value_template: '{{states.calendar.personal.attributes.message}}'
       icon_template: mdi:calendar
+    next_event_date:
+      friendly_name: 'Next event date'
+      value_template: '{{states.calendar.personal.attributes.start_time}}'
+      icon_template: mdi:calendar
     next_feyenoord:
       friendly_name: 'Next Feyenoord match'
       value_template: '{{states.calendar.feyenoord_eredivisie.attributes.message}}'
+      icon_template: mdi:calendar
+    next_feyenoord_date:
+      friendly_name: 'Next Feyenoord match date'
+      value_template: '{{states.calendar.feyenoord_eredivisie.attributes.start_time}}'
       icon_template: mdi:calendar
