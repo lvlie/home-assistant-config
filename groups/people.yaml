@@ -10,3 +10,7 @@ presence:
   view: no
   entities:
     - group.all_devices
+    - sensor.woonkamer_motion_sensor
+    - sensor.toilet_motion_sensor
+    - sensor.hal_motion_sensor
+    - sensor.garage_motion_sensor
