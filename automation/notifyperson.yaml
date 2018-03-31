@@ -94,8 +94,15 @@
         message: 'A person was detected on camera voortuin in the middle of the night'
     - service: light.turn_on
       data:
-        entity_id: light.keuken_achter
+        entity_id: light.hal
+        flash: long
+    - service: light.turn_on
+      data:
+        entity_id: light.keuken
         flash: long
     - service: light.turn_off
       data:
-        entity_id: light.keuken_achter
+        entity_id: light.hal
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
