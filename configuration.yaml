@@ -114,6 +114,10 @@ notify:
     host: !secret tvhost
     name: livingroom_tv
     filename: webostv.conf
+  - platform: html5
+    name: chrome
+    gcm_api_key: !secret gcm_api_key
+    gcm_sender_id: !secret gcm_sender_id
 
 google:
   client_id: !secret gcal_id
