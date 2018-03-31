@@ -9,8 +9,10 @@ woonkamer:
     - light.eettafel
     - light.keuken_voor
     - light.keuken_achter
+    - sensor.woonkamer_switch
+    - sensor.woonkamer_motion_sensor
     - sensor.woonkamer_lux
-    - sensor.woonkamer_temperature
+    - sensor.woonkamer_temperatuur
 
 woonkamer_media:
   name: Media
@@ -27,21 +29,24 @@ toilet:
   entities:
     - light.toilet_nis
     - light.toilet_plafond
+    - sensor.toilet_motion_sensor
     - sensor.toilet_lux
-    - sensor.toilet_temperature
+    - sensor.toilet_temperatuur
 
 hal:
   name: Hal
   view: no
   entities:
     - light.hal
+    - sensor.hal_motion_sensor
     - sensor.hal_lux
-    - sensor.hal_temperature
+    - sensor.hal_temperatuur
 
 garage:
   name: Garage
   view: no
   entities:
     - light.garage_centraal
+    - sensor.garage_motion_sensor
     - sensor.garage_lux
-    - sensor.garage_temperature
+    - sensor.garage_temperatuur
