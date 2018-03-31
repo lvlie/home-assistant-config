@@ -12,10 +12,13 @@
     - condition: state
       entity_id: group.all_devices
       state: home
-    - condition: state
-      entity_id: sun.sun
-      state: below_horizon
   action:
+    - service: notify.chrome
+      data_template:
+        message: 'A person was detected on camera voortuin'
+      data:
+        data:
+          tag: 'notification-about-front-yard-camera'
     - service: light.turn_on
       data:
         entity_id: light.woonkamer_centraal
@@ -42,6 +45,12 @@
     - service: notify.ha_bot
       data:
         message: 'A person was detected on camera voortuin'
+    - service: notify.chrome
+      data_template:
+        message: 'A person was detected on camera voortuin'
+      data:
+        data:
+          tag: 'notification-about-front-yard-camera'
 
 - alias: "[SECURITY]: Notify when person detected and TV is on"
   id: notifypersontv
