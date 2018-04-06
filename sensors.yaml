@@ -107,6 +107,14 @@
       friendly_name: 'Garage lux'
       value_template: '{{states.sensor.garage_motion_sensor.attributes.lux}}'
       unit_of_measurement: lux
+    trapkast_temperatuur:
+      friendly_name: 'Trapkast temperatuur'
+      value_template: '{{states.sensor.trapkast_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+    trapkast_lux:
+      friendly_name: 'Trapkast lux'
+      value_template: '{{states.sensor.trapkast_motion_sensor.attributes.lux}}'
+      unit_of_measurement: lux
 
     next_holiday:
       friendly_name: 'Next holiday'

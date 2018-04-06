@@ -50,3 +50,12 @@ garage:
     - sensor.garage_motion_sensor
     - sensor.garage_lux
     - sensor.garage_temperatuur
+
+trapkast:
+  name: Trapkast
+  view: no
+  entities:
+    - light.trapkast
+    - sensor.trapkast_motion_sensor
+    - sensor.trapkast_lux
+    - sensor.trapkast_temperatuur
