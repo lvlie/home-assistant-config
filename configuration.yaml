@@ -40,12 +40,22 @@ recorder:
   purge_keep_days: 60
   exclude:
     domains:
+      - automation
       - binary_sensor
       - calendar
     entities:
       - sun.sun 
       - sensor.date
       - sensor.time
+
+influxdb:
+  host: !secret nashost
+  port: 8086
+  database: home_assistant
+  default_measurement: state
+  tags:
+    instance: prod
+    source: homeassistant
 
 sun:
 
