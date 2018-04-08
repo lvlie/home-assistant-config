@@ -28,6 +28,9 @@ history:
       - automation
       - binary_sensor
       - calendar
+      - groups
+      - light
+      - media_player
 
 logbook:
   exclude:
@@ -43,6 +46,9 @@ recorder:
       - automation
       - binary_sensor
       - calendar
+      - groups
+      - light
+      - media_player
     entities:
       - sun.sun 
       - sensor.date
@@ -53,6 +59,14 @@ influxdb:
   port: 8086
   database: home_assistant
   default_measurement: state
+  exclude:
+    domains:
+      - automation
+      - binary_sensor
+      - calendar
+      - groups
+      - light
+      - media_player
   tags:
     instance: prod
     source: homeassistant
