@@ -153,6 +153,9 @@ binary_sensor:
   - platform: workday
     country: NL
 
+toon:
+  username: !secret email
+  password: !secret enecopw
 
 input_boolean:
   vacation:

@@ -9,6 +9,7 @@ viewrooms:
     - group.hal
     - group.trapkast
     - group.garage
+    - group.verbruik
 
 viewtech:
   view: yes

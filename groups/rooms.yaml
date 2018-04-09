@@ -13,6 +13,8 @@ woonkamer:
     - sensor.woonkamer_motion_sensor
     - sensor.woonkamer_lux
     - sensor.woonkamer_temperatuur
+    - climate.toon_van_eneco
+    - sensor.toon_temperatuur
 
 woonkamer_media:
   name: Media
@@ -59,3 +61,12 @@ trapkast:
     - sensor.trapkast_motion_sensor
     - sensor.trapkast_lux
     - sensor.trapkast_temperatuur
+
+verbruik:
+  name: Verbruik
+  view: no
+  entities:
+    - sensor.power_current
+    - sensor.power_today
+    - sensor.gas_current
+    - sensor.gas_today
