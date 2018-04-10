@@ -164,3 +164,13 @@ input_boolean:
   disable_automations:
     name: Disable automations
     icon: mdi:cancel
+
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_key
+  polling_interval: 30000
+  device_config_glob:
+    "sensor.*larm_level":
+      ignored: true
+    "sensor.*larm_type":
+      ignored: true

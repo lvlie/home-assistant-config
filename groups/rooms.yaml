@@ -9,12 +9,12 @@ woonkamer:
     - light.eettafel
     - light.keuken_voor
     - light.keuken_achter
-    - sensor.woonkamer_switch
+    - climate.toon_van_eneco
     - sensor.woonkamer_motion_sensor
     - sensor.woonkamer_lux
     - sensor.woonkamer_temperatuur
-    - climate.toon_van_eneco
     - sensor.toon_temperatuur
+    - sensor.woonkamer_switch
 
 woonkamer_media:
   name: Media
