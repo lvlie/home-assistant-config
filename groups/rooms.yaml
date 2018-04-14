@@ -1,5 +1,5 @@
-woonkamer:
-  name: Woonkamer
+woonkamer_lights:
+  name: Woonkamer lampen
   view: no
   entities:
     - light.tv_links
@@ -9,12 +9,18 @@ woonkamer:
     - light.eettafel
     - light.keuken_voor
     - light.keuken_achter
+
+woonkamer_other:
+  name: Woonkamer sensors en switches
+  view: no
+  entities:
     - climate.toon_van_eneco
     - sensor.woonkamer_motion_sensor
     - sensor.woonkamer_lux
     - sensor.woonkamer_temperatuur
     - sensor.toon_temperatuur
     - sensor.woonkamer_switch
+    - switch.tvkast
 
 woonkamer_media:
   name: Media
@@ -70,3 +76,5 @@ verbruik:
     - sensor.power_today
     - sensor.gas_current
     - sensor.gas_today
+    - sensor.tvkast_power
+    - sensor.tvkast_energy

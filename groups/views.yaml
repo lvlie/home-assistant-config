@@ -3,7 +3,8 @@ viewrooms:
   icon: mdi:home-outline
   entities:
     - group.camera
-    - group.woonkamer
+    - group.woonkamer_lights
+    - group.woonkamer_other
     - group.woonkamer_media
     - group.toilet
     - group.hal

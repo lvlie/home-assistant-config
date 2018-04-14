@@ -9,6 +9,8 @@ homeassistant:
     group.all_devices:
       hidden: false
       friendly_name: Presence
+    sensor.tvkast_power2:
+      hidden: true
 
 frontend:
 
@@ -80,6 +82,8 @@ tts:
 group: !include_dir_merge_named groups/
 light: !include lightgroups.yaml
 automation: !include_dir_merge_list automation/
+
+ios:
 
 hue:
   bridges:
@@ -173,4 +177,10 @@ zwave:
     "sensor.*larm_level":
       ignored: true
     "sensor.*larm_type":
+      ignored: true
+    "sensor.*xporting":
+      ignored: true
+    "sensor.*ower_management":
+      ignored: true
+    "sensor.*ourcenodeid":
       ignored: true
