@@ -20,3 +20,10 @@ calendar_events:
     - sensor.next_feyenoord_date
     - sensor.next_race_location
     - sensor.next_race_date
+
+misc:
+  name: Misc
+  view: no
+  entities:
+    - sensor.mayo_battery_level
+    - sensor.mayo_battery_state
