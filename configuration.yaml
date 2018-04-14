@@ -114,6 +114,8 @@ nest:
       - 'co_status'
       - 'smoke_status'
 
+map:
+
 device_tracker:
   - platform: unifi
     host: !secret nashost
@@ -123,6 +125,9 @@ device_tracker:
     new_device_defaults:
       track_new_devices: False
       hide_if_away: False
+  - platform: google_maps
+    username: !secret glocmail
+    password: !secret glocpass
 
 telegram_bot:
   - platform: polling
@@ -168,6 +173,8 @@ input_boolean:
   disable_automations:
     name: Disable automations
     icon: mdi:cancel
+
+zone: !include config/zones.yaml
 
 zwave:
   usb_path: /dev/ttyACM0
