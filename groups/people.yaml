@@ -14,3 +14,20 @@ presence:
     - sensor.toilet_motion_sensor
     - sensor.hal_motion_sensor
     - sensor.garage_motion_sensor
+
+leon:
+  name: Leon
+  view: no
+  entities:
+    - device_tracker.google_maps_109202381251367736104
+    - device_tracker.leon_galaxy_s8
+    - sensor.leon_to_home
+
+marjolein:
+  name: Marjolein
+  view: no
+  entities:
+    - device_tracker.google_maps_112491877133535749167
+    - device_tracker.mayo_iphone
+    - device_tracker.imayo
+    - sensor.mayo_to_home

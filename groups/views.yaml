@@ -30,6 +30,8 @@ viewpeople:
     - group.inputbool
     - group.presence
     - group.all_devices
+    - group.leon
+    - group.marjolein
 
 viewbuiten:
   view: yes
