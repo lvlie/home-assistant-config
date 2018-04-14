@@ -1,0 +1,28 @@
+- alias: "[LOCATION]: Notify when Marjolein leaves a zone"
+  id: notifymayoleave
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.google_maps_112491877133535749167
+      event: leave
+      zone: zone.work_mayo
+    - platform: zone
+      entity_id: device_tracker.google_maps_112491877133535749167
+      event: leave
+      zone: zone.mayo_pa_en_ma
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+  action:
+    - service: notify.chrome
+      data_template:
+        message: Marjolein komt naar huis, nog {{states('sensor.mayo_to_home')}} minuten
+      data:
+        data:
+          tag: 'notification-about-Marjolein'
+    - service: notify.livingroom_tv
+      data:
+        message: Marjolein komt naar huis, nog {{states('sensor.mayo_to_home')}} minuten
+    - service: notify.ha_bot
+      data:
+        message: Marjolein komt naar huis, nog {{states('sensor.mayo_to_home')}} minuten
