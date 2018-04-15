@@ -59,12 +59,12 @@
   name: Home to work
   api_key: !secret gmaps_secret
   origin: zone.home
-  destination: zone.work
+  destination: zone.work_leon
 
 - platform: google_travel_time
   name: Work to home
   api_key: !secret gmaps_secret
-  origin: zone.work
+  origin: zone.work_leon
   destination: zone.home
 
 - platform: google_travel_time

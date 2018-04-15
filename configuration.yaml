@@ -158,7 +158,7 @@ google:
 
 binary_sensor:
   - platform: iss
-    show_on_map: True
+    show_on_map: false
   - platform: workday
     country: NL
 
