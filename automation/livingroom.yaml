@@ -1,50 +1,19 @@
-- alias: "[LIGHT]: Timed Turn on dinner lights at 1700"
-  id: timedturnondinner
+- alias: "[LIGHT]: Turn on dinner lights"
+  id: turnondinnerlights
   trigger:
-    platform: time
-    at: '17:00:00'
+    - platform: time
+      at: '17:00:00'
+    - platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: 3.5
   condition:
     - condition: state
       entity_id: input_boolean.disable_automations
       state: 'off'
     - condition: sun
       after: sunset
-  action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Woonkamer"
-        scene_name: "Eten"
-
-- alias: "[LIGHT]: Timed Turn on TV lights at 1900"
-  id: timedturnontv
-  trigger:
-    platform: time
-    at: '19:00:00'
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
-    - condition: sun
-      after: sunset
-  action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Woonkamer"
-        scene_name: "TV kijken"
-
-- alias: "[LIGHT]: Triggered Turn on dinner lights at sunset"
-  id: tiggeredturnondinner
-  trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: 3.5
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: time
-      after: '17:00:01'
       before: '18:59:59'
   action:
     - service: hue.hue_activate_scene
@@ -52,19 +21,22 @@
         group_name: "Woonkamer"
         scene_name: "Eten"
 
-- alias: "[LIGHT]: Triggered Turn on TV lights at sunset"
-  id: tiggeredturnontv
+- alias: "[LIGHT]: Turn on TV lights"
+  id: turnontvlights
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: 3.5
+    - platform: time
+      at: '19:00:00'
+    - platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: 3.5
   condition:
     - condition: state
       entity_id: input_boolean.disable_automations
       state: 'off'
+    - condition: sun
+      after: sunset
     - condition: time
-      after: '19:00:01'
       before: '22:00:00'
   action:
     - service: hue.hue_activate_scene
@@ -72,11 +44,11 @@
         group_name: "Woonkamer"
         scene_name: "TV kijken"
 
-- alias: "[LIGHT]: Turn off living room lights at 2200"
+- alias: "[LIGHT]: Turn off living room lights at 2230"
   id: turnofflivingroom
   trigger:
     platform: time
-    at: '21:45:00'
+    at: '22:15:00'
   condition:
     - condition: state
       entity_id: input_boolean.disable_automations
@@ -119,6 +91,9 @@
       state: 'off'
     - condition: sun
       before: sunrise
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
   action:
     - service: hue.hue_activate_scene
       data:
