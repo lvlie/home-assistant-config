@@ -133,6 +133,8 @@ binary_sensor:
 toon:
   username: !secret email
   password: !secret enecopw
+  consumer_key: !secret toonkey
+  consumer_secret: !secret toonsecret
 
 input_boolean:
   vacation:
