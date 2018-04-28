@@ -78,3 +78,7 @@ verbruik:
     - sensor.gas_today
     - sensor.tvkast_power
     - sensor.tvkast_energy
+    - sensor.burner_status
+    - sensor.gas_meter_reading
+    - sensor.power_meter_reading
+    - sensor.power_meter_reading_low
