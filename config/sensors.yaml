@@ -37,9 +37,7 @@
     - 'date'
 
 - platform: buienradar
-  name: !secret city
-  latitude: !secret brlat
-  longitude: !secret brlong
+  timeframe: 30
   monitored_conditions:
     - symbol
     - precipitation
@@ -47,6 +45,7 @@
     - temperature
     - windspeed
     - pressure
+    - precipitation_forecast_average
 
 - platform: systemmonitor
   resources:

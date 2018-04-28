@@ -30,9 +30,10 @@ weernu:
   view: no
   entities:
     - sun.sun
-    - sensor.rotterdam_symbol
-    - sensor.rotterdam_temperature
-    - sensor.rotterdam_precipitation
-    - sensor.rotterdam_wind_speed
-    - sensor.rotterdam_humidity
-    - sensor.rotterdam_pressure
+    - sensor.br_symbol
+    - sensor.br_temperature
+    - sensor.br_precipitation
+    - sensor.br_wind_speed
+    - sensor.br_humidity
+    - sensor.br_pressure
+    - sensor.br_precipitation_forecast_average
