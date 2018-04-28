@@ -144,6 +144,10 @@ input_boolean:
     name: Disable automations
     icon: mdi:cancel
 
+weather:
+- platform: buienradar
+  forecast: True
+
 zone: !include config/zones.yaml
 
 zwave:

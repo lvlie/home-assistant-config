@@ -36,18 +36,6 @@
     - 'time'
     - 'date'
 
-- platform: buienradar
-  name: !secret city
-  latitude: !secret brlat
-  longitude: !secret brlong
-  monitored_conditions:
-    - symbol
-    - precipitation
-    - humidity
-    - temperature
-    - windspeed
-    - pressure
-
 - platform: systemmonitor
   resources:
     - type: processor_use
