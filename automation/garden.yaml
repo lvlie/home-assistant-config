@@ -18,6 +18,7 @@
       data:
         group_name: "Voortuin"
         scene_name: "Aan"
+
 - alias: "[LIGHT]: Turn off garden lights at sunrise"
   id: turnoffgarden
   trigger:

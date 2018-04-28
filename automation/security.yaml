@@ -26,6 +26,9 @@
     - service: light.turn_off
       data:
         entity_id: light.woonkamer_centraal
+    - service: notify.livingroom_tv
+      data:
+        message: 'A person was detected on camera voortuin'
 
 - alias: "[SECURITY]: Notify when person detected and no-one is home"
   id: notifypersonnothome
@@ -51,25 +54,6 @@
       data:
         data:
           tag: 'notification-about-front-yard-camera'
-
-- alias: "[SECURITY]: Notify when person detected and TV is on"
-  id: notifypersontv
-  trigger:
-    platform: state
-    entity_id: binary_sensor.front_yard_camera_person_detected
-    from: 'off'
-    to: 'on'
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
-    - condition: state
-      entity_id: media_player.living_room_tv
-      state: playing
-  action:
-    - service: notify.livingroom_tv
-      data:
-        message: 'A person was detected on camera voortuin'
 
 - alias: "[SECURITY]: Notify when person detected at night"
   id: notifypersonnight

@@ -82,7 +82,7 @@ tts:
     language: !secret language
 
 group: !include_dir_merge_named groups/
-light: !include lightgroups.yaml
+light: !include config/lightgroups.yaml
 automation: !include_dir_merge_list automation/
 
 ios:
@@ -93,18 +93,9 @@ hue:
       filename: phue.conf
       allow_hue_groups: true
 
-media_player:
-  - platform: plex
-    entity_namespace: 'plex'
-  - platform: sonos
-    interface_addr: !secret nashost
-  - platform: webostv
-    host: !secret tvhost
-    name: Living Room TV  
-    timeout: 5
-    file: webostv.conf
+media_player: !include config/media_player.yaml
 
-sensor: !include sensors.yaml
+sensor: !include config/sensors.yaml
 
 nest:
   client_id: !secret nestid
@@ -118,18 +109,7 @@ nest:
 
 map:
 
-device_tracker:
-  - platform: unifi
-    host: !secret nashost
-    verify_ssl: False
-    username: !secret unifiid
-    password: !secret unifipw
-    new_device_defaults:
-      track_new_devices: False
-      hide_if_away: False
-  - platform: google_maps
-    username: !secret glocmail
-    password: !secret glocpass
+device_tracker: !include config/device_tracker.yaml
 
 telegram_bot:
   - platform: polling
@@ -138,21 +118,7 @@ telegram_bot:
       - !secret telegram_chatid
       - !secret telegram_workid
 
-notify:
-  - name: ha_bot
-    platform: telegram
-    chat_id: !secret telegram_chatid
-  - name: work_bot
-    platform: telegram
-    chat_id: !secret telegram_workid
-  - platform: webostv
-    host: !secret tvhost
-    name: livingroom_tv
-    filename: webostv.conf
-  - platform: html5
-    name: chrome
-    gcm_api_key: !secret gcm_api_key
-    gcm_sender_id: !secret gcm_sender_id
+notify: !include config/notify.yaml
 
 google:
   client_id: !secret gcal_id

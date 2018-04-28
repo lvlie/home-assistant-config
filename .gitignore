@@ -1,6 +1,7 @@
 *
 !automation/
 !groups/
+!config/
 !*.yaml
 !scenes
 !.gitignore
@@ -8,3 +9,4 @@ google_calendars.yaml
 secrets.yaml
 known_devices.yaml
 entity_registry.yaml
+config/zones.yaml
