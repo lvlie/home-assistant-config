@@ -24,6 +24,8 @@ discovery:
 
 conversation:
 
+cloud:
+
 history:
   exclude:
     domains:

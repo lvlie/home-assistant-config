@@ -60,19 +60,16 @@
   api_key: !secret gmaps_secret
   origin: zone.home
   destination: zone.work_leon
-
 - platform: google_travel_time
   name: Work to home
   api_key: !secret gmaps_secret
   origin: zone.work_leon
   destination: zone.home
-
 - platform: google_travel_time
   name: Leon to home
   api_key: !secret gmaps_secret
   origin: device_tracker.google_maps_109202381251367736104
   destination: zone.home
-
 - platform: google_travel_time
   name: Mayo to home
   api_key: !secret gmaps_secret
