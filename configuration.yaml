@@ -109,6 +109,11 @@ nest:
 
 map:
 
+rfxtrx:
+  device: /dev/ttyUSB0
+
+cover: !include config/cover.yaml
+
 device_tracker: !include config/device_tracker.yaml
 
 telegram_bot:
