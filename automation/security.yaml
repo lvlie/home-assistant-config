@@ -90,3 +90,120 @@
     - service: light.turn_off
       data:
         entity_id: light.keuken
+
+- alias: "[SECURITY]: Notify when door opens in the night"
+  id: notifydooropennight
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voordeur
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+    - condition: time
+      after: '23:30:00'
+      before: '05:30:00'
+  action:
+    - service: notify.ha_bot
+      data:
+        message: 'Door opened during the night'
+    - service: notify.chrome
+      data_template:
+        message: 'Door opened during the night'
+      data:
+        data:
+          tag: 'notification-about-front-door'
+    - service: light.turn_on
+      data:
+        entity_id: light.hal
+        flash: long
+    - service: light.turn_on
+      data:
+        entity_id: light.keuken
+        flash: long
+    - service: light.turn_off
+      data:
+        entity_id: light.hal
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
+
+- alias: "[SECURITY]: Notify when door opens and no-one is home"
+  id: notifydooropennothome
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voordeur
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+    - condition: state
+      entity_id: group.all_devices
+      state: not_home
+  action:
+    - service: notify.ha_bot
+      data:
+        message: 'Door opened while no-one is home'
+    - service: notify.chrome
+      data_template:
+        message: 'Door opened while no-one is home'
+      data:
+        data:
+          tag: 'notification-about-front-door'
+    - service: light.turn_on
+      data:
+        entity_id: light.hal
+        flash: long
+    - service: light.turn_on
+      data:
+        entity_id: light.keuken
+        flash: long
+    - service: light.turn_off
+      data:
+        entity_id: light.hal
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
+
+- alias: "[SECURITY]: Notify when door opens while on vacation"
+  id: notifydooropenvacation
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voordeur
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacation
+      state: 'on'
+  action:
+    - service: notify.ha_bot
+      data:
+        message: 'Door opened while on vacation'
+    - service: notify.chrome
+      data_template:
+        message: 'Door opened while on vacation'
+      data:
+        data:
+          tag: 'notification-about-front-door'
+    - service: light.turn_on
+      data:
+        entity_id: light.hal
+        flash: long
+    - service: light.turn_on
+      data:
+        entity_id: light.keuken
+        flash: long
+    - service: light.turn_off
+      data:
+        entity_id: light.hal
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
