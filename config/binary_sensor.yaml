@@ -1,0 +1,13 @@
+- platform: iss
+  show_on_map: false
+
+- platform: workday
+  country: NL
+
+- platform: template
+  sensors:
+    voordeur:
+      device_class: door
+      friendly_name: Voordeur
+      value_template: >
+        {{ states.sensor.voordeur_open_value.state != '23' }}

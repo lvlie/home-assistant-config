@@ -11,6 +11,8 @@ homeassistant:
       friendly_name: Presence
     sensor.tvkast_power2:
       hidden: true
+    sensor.voordeur_open_value:
+      hidden: true
 
 frontend:
 
@@ -129,11 +131,7 @@ google:
   client_id: !secret gcal_id
   client_secret: !secret gcal_secret
 
-binary_sensor:
-  - platform: iss
-    show_on_map: false
-  - platform: workday
-    country: NL
+binary_sensor: !include config/binary_sensor.yaml
 
 toon:
   username: !secret email
@@ -165,4 +163,10 @@ zwave:
     "sensor.*ower_management":
       ignored: true
     "sensor.*ourcenodeid":
+      ignored: true
+    "sensor.*heat":
+      ignored: true
+    "sensor.*burglar":
+      ignored: true
+    "binary_sensor.voordeur_sensor":
       ignored: true

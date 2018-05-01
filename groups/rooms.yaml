@@ -45,10 +45,12 @@ hal:
   name: Hal
   view: no
   entities:
+    - binary_sensor.voordeur
     - light.hal
     - sensor.hal_motion_sensor
     - sensor.hal_lux
     - sensor.hal_temperatuur
+    - sensor.voordeur_temperatuur
 
 garage:
   name: Garage
