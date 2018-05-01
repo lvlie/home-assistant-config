@@ -9,12 +9,9 @@ voortuin:
   view: no
   entities:
     - light.voortuin_oprit
-    - binary_sensor.front_yard_camera_online
     - binary_sensor.front_yard_camera_person_detected
     - binary_sensor.front_yard_camera__looppad_activity
     - binary_sensor.front_yard_camera__voortuin_activity
-    - binary_sensor.front_yard_camera__straat_activity
-    - binary_sensor.front_yard_camera_motion_detected
     - binary_sensor.front_yard_camera_sound_detected
 
 achtertuin:

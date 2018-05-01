@@ -13,6 +13,8 @@ homeassistant:
       hidden: true
     sensor.voordeur_open_value:
       hidden: true
+    binary_sensor.front_yard_camera__straat_activity:
+      hidden: true
 
 frontend:
 
@@ -102,10 +104,12 @@ sensor: !include config/sensors.yaml
 nest:
   client_id: !secret nestid
   client_secret: !secret nestsecret
+  binary_sensors:
+    monitored_conditions:
+      - 'person_detected'
+      - 'sound_detected'
   sensors:
     monitored_conditions:
-      - 'temperature'
-      - 'target'
       - 'co_status'
       - 'smoke_status'
 

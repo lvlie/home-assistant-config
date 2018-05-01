@@ -36,13 +36,10 @@ smoke:
   name: Smoke sensors
   view: no
   entities:
-    - binary_sensor.beneden_nest_protect_online
     - sensor.beneden_nest_protect_co_status
     - sensor.beneden_nest_protect_smoke_status
-    - binary_sensor.eerste_verdieping_nest_protect_online
     - sensor.eerste_verdieping_nest_protect_co_status
     - sensor.eerste_verdieping_nest_protect_smoke_status
-    - binary_sensor.tweede_verdieping_nest_protect_online
     - sensor.tweede_verdieping_nest_protect_co_status
     - sensor.tweede_verdieping_nest_protect_smoke_status
 
