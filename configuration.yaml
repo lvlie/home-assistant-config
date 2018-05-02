@@ -34,7 +34,6 @@ history:
   exclude:
     domains:
       - automation
-      - binary_sensor
       - calendar
       - groups
       - light
@@ -52,7 +51,6 @@ recorder:
   exclude:
     domains:
       - automation
-      - binary_sensor
       - calendar
       - groups
       - light
@@ -70,7 +68,6 @@ influxdb:
   exclude:
     domains:
       - automation
-      - binary_sensor
       - calendar
       - groups
       - light
