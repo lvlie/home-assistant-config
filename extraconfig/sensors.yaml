@@ -15,7 +15,7 @@
     - queue
     - diskspace
   include_paths:
-    - /data/TV
+    - /tv
   days: 2
 
 - platform: radarr
@@ -25,7 +25,7 @@
     - upcoming
     - diskspace
   include_paths:
-    - /data/Movies
+    - /movies
   days: 7
 
 - platform: cert_expiry
