@@ -81,6 +81,10 @@
 
 - platform: hue
 
+- platform: postnl
+  username: !secret email
+  password: !secret postnlpw
+
 - platform: template
   sensors:
     woonkamer_temperatuur:
