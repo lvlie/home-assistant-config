@@ -5,7 +5,10 @@ homeassistant:
   elevation: !secret elevation
   unit_system: metric
   time_zone: !secret time_zone
+  
   customize:
+    binary_sensor.front_yard_camera__straat_activity:
+      hidden: true
     group.all_devices:
       hidden: false
       friendly_name: Presence
@@ -13,22 +16,30 @@ homeassistant:
       hidden: true
     sensor.voordeur_open_value:
       hidden: true
-    binary_sensor.front_yard_camera__straat_activity:
-      hidden: true
 
-frontend:
+automation: !include_dir_merge_list automation/
+
+binary_sensor: !include extraconfig/binary_sensor.yaml
+
+cloud:
 
 config:
 
-http:
-  api_password: !secret api_password
-  base_url: !secret base_url
+conversation:
+
+cover: !include extraconfig/cover.yaml
+
+device_tracker: !include extraconfig/device_tracker.yaml
 
 discovery:
 
-conversation:
+frontend:
 
-cloud:
+google:
+  client_id: !secret gcal_id
+  client_secret: !secret gcal_secret
+
+group: !include_dir_merge_named groups/
 
 history:
   exclude:
@@ -39,26 +50,15 @@ history:
       - light
       - media_player
 
-logbook:
-  exclude:
-    entities:
-      - sensor.date
-      - sensor.time
+http:
+  api_password: !secret api_password
+  base_url: !secret base_url
 
-recorder:
-  db_url: !secret mariadburl
-  purge_keep_days: 60
-  exclude:
-    domains:
-      - automation
-      - calendar
-      - groups
-      - light
-      - media_player
-    entities:
-      - sun.sun 
-      - sensor.date
-      - sensor.time
+hue:
+  bridges:
+    - host: !secret huehost
+      filename: phue.conf
+      allow_hue_groups: true
 
 influxdb:
   host: !secret nashost
@@ -76,27 +76,27 @@ influxdb:
     instance: prod
     source: homeassistant
 
-sun:
-
-tts:
-  - platform: google
-    language: !secret language
-
-group: !include_dir_merge_named groups/
-light: !include config/lightgroups.yaml
-automation: !include_dir_merge_list automation/
+input_boolean:
+  vacation:
+    name: Vacation
+    icon: mdi:routes
+  disable_automations:
+    name: Disable automations
+    icon: mdi:cancel
 
 ios:
 
-hue:
-  bridges:
-    - host: !secret huehost
-      filename: phue.conf
-      allow_hue_groups: true
+light: !include extraconfig/lightgroups.yaml
 
-media_player: !include config/media_player.yaml
+logbook:
+  exclude:
+    entities:
+      - sensor.date
+      - sensor.time
 
-sensor: !include config/sensors.yaml
+map:
+
+media_player: !include extraconfig/media_player.yaml
 
 nest:
   client_id: !secret nestid
@@ -110,14 +110,26 @@ nest:
       - 'co_status'
       - 'smoke_status'
 
-map:
+notify: !include extraconfig/notify.yaml
 
-rfxtrx:
-  device: /dev/ttyUSB0
+recorder:
+  db_url: !secret mariadburl
+  purge_keep_days: 60
+  exclude:
+    domains:
+      - automation
+      - calendar
+      - groups
+      - light
+      - media_player
+    entities:
+      - sun.sun 
+      - sensor.date
+      - sensor.time
 
-cover: !include config/cover.yaml
+sensor: !include extraconfig/sensors.yaml
 
-device_tracker: !include config/device_tracker.yaml
+sun:
 
 telegram_bot:
   - platform: polling
@@ -126,29 +138,20 @@ telegram_bot:
       - !secret telegram_chatid
       - !secret telegram_workid
 
-notify: !include config/notify.yaml
-
-google:
-  client_id: !secret gcal_id
-  client_secret: !secret gcal_secret
-
-binary_sensor: !include config/binary_sensor.yaml
-
 toon:
   username: !secret email
   password: !secret enecopw
   consumer_key: !secret toonkey
   consumer_secret: !secret toonsecret
 
-input_boolean:
-  vacation:
-    name: Vacation
-    icon: mdi:routes
-  disable_automations:
-    name: Disable automations
-    icon: mdi:cancel
+tts:
+  - platform: google
+    language: !secret language
 
-zone: !include config/zones.yaml
+rfxtrx:
+  device: /dev/ttyUSB0
+
+zone: !include extraconfig/zones.yaml
 
 zwave:
   usb_path: /dev/ttyACM0
