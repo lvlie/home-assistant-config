@@ -165,6 +165,10 @@ zwave:
       ignored: true
     "sensor.*ourcenodeid":
       ignored: true
+    "sensor.*interval":
+      ignored: true
+    "sensor.*previous_reading":
+      ignored: true
     "sensor.*heat":
       ignored: true
     "sensor.*burglar":
