@@ -6,20 +6,19 @@ work:
     - sensor.home_to_work
     - sensor.work_to_home
 
-calendar_events:
-  name: Calendar events
+events:
+  name: Events
   view: no
   entities:
     - sensor.date
     - sensor.time
-    - sensor.next_event
     - sensor.next_event_date
-    - sensor.next_holiday
+    - sensor.next_event
     - sensor.next_holiday_date
-    - sensor.next_feyenoord
-    - sensor.next_feyenoord_date
-    - sensor.next_race_location
+    - sensor.next_holiday
     - sensor.next_race_date
+    - sensor.next_race_location
+    - sensor.postnl
 
 misc:
   name: Misc
@@ -27,3 +26,4 @@ misc:
   entities:
     - sensor.mayo_battery_level
     - sensor.mayo_battery_state
+

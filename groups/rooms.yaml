@@ -28,8 +28,8 @@ woonkamer_media:
   entities:
     - media_player.living_room_tv
     - media_player.woonkamer # sonos
-    - media_player.woonkamer_2 # chromecast
-    - media_player.living_room_home_mini
+    - media_player.kitchen_speaker
+    - media_player.tvcast
 
 toilet:
   name: Toilet
