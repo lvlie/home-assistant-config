@@ -5,12 +5,22 @@ viewrooms:
     - group.camera
     - group.woonkamer_lights
     - group.woonkamer_other
-    - group.woonkamer_media
     - group.toilet
     - group.hal
     - group.trapkast
+    - group.washok
     - group.garage
     - group.verbruik
+
+viewbuiten:
+  view: yes
+  icon: mdi:flower
+  entities:
+    - group.camera
+    - group.weernu
+    - group.forecast
+    - group.voortuin
+    - group.achtertuin
 
 viewtech:
   view: yes
@@ -32,13 +42,3 @@ viewpeople:
     - group.all_devices
     - group.leon
     - group.marjolein
-
-viewbuiten:
-  view: yes
-  icon: mdi:flower
-  entities:
-    - group.camera
-    - group.weernu
-    - group.forecast
-    - group.voortuin
-    - group.achtertuin

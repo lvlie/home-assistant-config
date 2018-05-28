@@ -21,6 +21,8 @@ woonkamer_other:
     - sensor.toon_temperatuur
     - sensor.woonkamer_switch
     - switch.tvkast
+    - sensor.tvkast_power
+    - sensor.tvkast_energy
 
 woonkamer_media:
   name: Media
@@ -70,6 +72,14 @@ trapkast:
     - sensor.trapkast_lux
     - sensor.trapkast_temperatuur
 
+washok:
+  name: Washok
+  view: no
+  entities:
+    - switch.wasmachine
+    - sensor.wasmachine_power
+    - sensor.wasmachine_energy
+
 verbruik:
   name: Verbruik
   view: no
@@ -80,6 +90,8 @@ verbruik:
     - sensor.gas_today
     - sensor.tvkast_power
     - sensor.tvkast_energy
+    - sensor.wasmachine_power
+    - sensor.wasmachine_energy
     - sensor.burner_status
     - sensor.gas_meter_reading
     - sensor.power_meter_reading

@@ -3,6 +3,7 @@ camera:
   view: no
   entities:
     - camera.front_yard
+    - camera.back_yard
 
 voortuin:
   name: Voortuin
@@ -13,6 +14,7 @@ voortuin:
     - binary_sensor.front_yard_camera__looppad_activity
     - binary_sensor.front_yard_camera__voortuin_activity
     - binary_sensor.front_yard_camera_sound_detected
+    - cover.garagedeur
 
 achtertuin:
   name: Achtertuin
@@ -21,6 +23,7 @@ achtertuin:
     - light.achtertuin_gevel
     - light.overkapping_1
     - light.overkapping_2
+    - cover.zonnescherm
 
 weernu:
   name: Weer nu
