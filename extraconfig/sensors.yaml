@@ -1,11 +1,3 @@
-- platform: sabnzbd
-  host: !secret nashost
-  port: !secret sabport
-  api_key: !secret sabapi_key
-  monitored_variables:
-    - 'current_status'
-    - 'speed'
-
 - platform: sonarr
   api_key: !secret sonarrapi_key
   host: !secret nashost

@@ -21,6 +21,12 @@ automation: !include_dir_merge_list automation/
 
 binary_sensor: !include extraconfig/binary_sensor.yaml
 
+camera:
+  - platform: mjpeg
+    name: back_yard
+    mjpeg_url: !secret camurl_backyard
+    still_image_url: !secret camurlstill_backyard
+
 cloud:
 
 config:
@@ -127,6 +133,14 @@ recorder:
       - sensor.date
       - sensor.time
 
+sabnzbd:
+  host: !secret nashost
+  port: !secret sabport
+  api_key: !secret sabapi_key
+  sensors:
+    - 'current_status'
+    - 'speed'
+
 sensor: !include extraconfig/sensors.yaml
 
 sun:
@@ -165,6 +179,10 @@ zwave:
     "sensor.*xporting":
       ignored: true
     "sensor.*ower_management":
+      ignored: true
+    "sensor.*ower_2":
+      ignored: true
+    "sensor.*ower2":
       ignored: true
     "sensor.*ourcenodeid":
       ignored: true
