@@ -23,6 +23,9 @@ achtertuin:
     - light.achtertuin_gevel
     - light.overkapping_1
     - light.overkapping_2
+    - sensor.achtertuin_power
+    - sensor.achtertuin_energy
+    - switch.achtertuin_switch
     - cover.zonnescherm
 
 weernu:

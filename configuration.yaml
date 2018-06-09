@@ -14,8 +14,20 @@ homeassistant:
       friendly_name: Presence
     sensor.tvkast_power2:
       hidden: true
+    sensor.wasmachine_power_2:
+      hidden: true
+    sensor.achtertuin_power_2:
+      hidden: true
     sensor.voordeur_open_value:
       hidden: true
+    sensor.achterdeur_open_value:
+      hidden: true
+    camera.back_yard:
+      friendly_name: "Back Yard"
+    sensor.server_current_power:
+      friendly_name: "Server power"
+    sensor.server_today_energy:
+      friendly_name: "Server energy"
 
 automation: !include_dir_merge_list automation/
 
@@ -180,10 +192,6 @@ zwave:
       ignored: true
     "sensor.*ower_management":
       ignored: true
-    "sensor.*ower_2":
-      ignored: true
-    "sensor.*ower2":
-      ignored: true
     "sensor.*ourcenodeid":
       ignored: true
     "sensor.*interval":
@@ -195,4 +203,12 @@ zwave:
     "sensor.*burglar":
       ignored: true
     "binary_sensor.voordeur_sensor":
+      ignored: true
+    "binary_sensor.achterdeur_sensor":
+      ignored: true
+    "sensor.*_velocity":
+      ignored: true
+    "sensor.*_rain_rate":
+      ignored: true
+    "sensor.*relative_humidity":
       ignored: true

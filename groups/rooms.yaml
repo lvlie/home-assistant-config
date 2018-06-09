@@ -15,6 +15,8 @@ woonkamer_other:
   view: no
   entities:
     - climate.toon_van_eneco
+    - binary_sensor.achterdeur
+    - sensor.achterdeur_temperatuur
     - sensor.woonkamer_motion_sensor
     - sensor.woonkamer_lux
     - sensor.woonkamer_temperatuur
@@ -71,6 +73,8 @@ trapkast:
     - sensor.trapkast_motion_sensor
     - sensor.trapkast_lux
     - sensor.trapkast_temperatuur
+    - sensor.server_current_power
+    - sensor.server_today_energy
 
 washok:
   name: Washok
@@ -88,6 +92,10 @@ verbruik:
     - sensor.power_today
     - sensor.gas_current
     - sensor.gas_today
+    - sensor.achtertuin_power
+    - sensor.achtertuin_energy
+    - sensor.server_current_power
+    - sensor.server_today_energy
     - sensor.tvkast_power
     - sensor.tvkast_energy
     - sensor.wasmachine_power
