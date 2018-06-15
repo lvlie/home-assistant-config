@@ -1,0 +1,58 @@
+- alias: "[WASH]: Washingmachine is on"
+  id: washon
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.wasmachine_power
+    above: 10
+    for:
+      minutes: 5
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.wasmachine_status
+
+- alias: "[WASH]: Washingmachine is off"
+  id: washoff
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.wasmachine_power
+    below: 2
+    for:
+      minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.wasmachine_status
+
+- alias: "[WASH]: Notify when washingmachine is done"
+  id: washnotify
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wasmachine_status
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+  action:
+    - service: notify.chrome
+      data_template:
+        message: "De wasmachine is klaar!"
+      data:
+        data:
+          tag: 'notification-about-wasmachine'
+    - service: notify.livingroom_tv
+      data:
+        message: "De wasmachine is klaar!"
+    - service: notify.ios_imayo
+      data:
+        message: "De wasmachine is klaar!"

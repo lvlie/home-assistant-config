@@ -99,6 +99,10 @@ input_boolean:
   disable_automations:
     name: Disable automations
     icon: mdi:cancel
+  wasmachine_status:
+    name: Wasmachine status
+    icon: mdi:washing-machine
+    initial: off
 
 ios:
 
