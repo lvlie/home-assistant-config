@@ -2,7 +2,8 @@ camera:
   name: camera
   view: no
   entities:
-    - camera.front_yard
+    - camera.front_door
+    - camera.garage
     - camera.back_yard
 
 voortuin:
@@ -10,10 +11,12 @@ voortuin:
   view: no
   entities:
     - light.voortuin_oprit
-    - binary_sensor.front_yard_camera_person_detected
-    - binary_sensor.front_yard_camera__looppad_activity
-    - binary_sensor.front_yard_camera__voortuin_activity
-    - binary_sensor.front_yard_camera_sound_detected
+    - binary_sensor.front_door_camera_person_detected
+    - binary_sensor.front_door_camera__looppad_activity
+    - binary_sensor.front_door_camera__voortuin_activity
+    - binary_sensor.front_door_camera_sound_detected
+    - binary_sensor.garage_camera_person_detected
+    - binary_sensor.garage_camera_sound_detected
     - cover.garagedeur
 
 achtertuin:

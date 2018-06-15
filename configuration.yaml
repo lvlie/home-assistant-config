@@ -7,8 +7,6 @@ homeassistant:
   time_zone: !secret time_zone
   
   customize:
-    binary_sensor.front_yard_camera__straat_activity:
-      hidden: true
     group.all_devices:
       hidden: false
       friendly_name: Presence

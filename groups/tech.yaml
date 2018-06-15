@@ -36,12 +36,12 @@ smoke:
   name: Smoke sensors
   view: no
   entities:
-    - sensor.beneden_nest_protect_co_status
-    - sensor.beneden_nest_protect_smoke_status
-    - sensor.eerste_verdieping_nest_protect_co_status
-    - sensor.eerste_verdieping_nest_protect_smoke_status
-    - sensor.tweede_verdieping_nest_protect_co_status
-    - sensor.tweede_verdieping_nest_protect_smoke_status
+    - sensor.hallway_nest_protect_beneden_co_status
+    - sensor.hallway_nest_protect_beneden_smoke_status
+    - sensor.upstairs_nest_protect_eerste_verdieping_co_status
+    - sensor.upstairs_nest_protect_eerste_verdieping_smoke_status
+    - sensor.attic_nest_protect_tweede_verdieping_co_status
+    - sensor.attic_nest_protect_tweede_verdieping_smoke_status
 
 plex:
   name: Plex activity
