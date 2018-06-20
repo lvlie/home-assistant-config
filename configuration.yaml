@@ -214,3 +214,7 @@ zwave:
       ignored: true
     "sensor.*relative_humidity":
       ignored: true
+    "sensor.voordeur_power":
+      ignored: true
+    "sensor.tv_kast_distance":
+      ignored: true
