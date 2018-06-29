@@ -204,9 +204,7 @@ zwave:
       ignored: true
     "sensor.*burglar":
       ignored: true
-    "binary_sensor.voordeur_sensor":
-      ignored: true
-    "binary_sensor.achterdeur_sensor":
+    "binary_sensor.*deur_sensor":
       ignored: true
     "sensor.*_velocity":
       ignored: true
@@ -214,7 +212,7 @@ zwave:
       ignored: true
     "sensor.*relative_humidity":
       ignored: true
-    "sensor.voordeur_power":
+    "sensor.*deur_power":
       ignored: true
     "sensor.tv_kast_distance":
       ignored: true
