@@ -1,0 +1,33 @@
+name: My Home
+views:
+  - name: State
+    theme: dark-mode
+    cards:
+      - title: Presence
+        type: entity-filter
+        filter:
+          - domain: device_tracker
+            state: 'home'
+        card: glance
+
+      - title: Lights
+        type: entity-filter
+        filter:
+          - domain: light
+            state: 'on'
+        card: glance
+
+      - title: Power
+        type: entity-filter
+        filter:
+          - entity_id: '*power*'
+            
+
+
+  - tab_icon: mdi:settings
+    name: Debugging
+    cards:
+      - type: entity-filter
+        filter: [{}]
+        card_config:
+          title: All entities
