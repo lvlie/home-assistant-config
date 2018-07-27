@@ -1,6 +1,6 @@
 - platform: unifi
   host: !secret nashost
-  verify_ssl: False
+  verify_ssl: false
   username: !secret unifiid
   password: !secret unifipw
   new_device_defaults:

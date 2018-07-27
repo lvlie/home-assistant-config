@@ -72,6 +72,8 @@
   token: !secret plextoken
 
 - platform: hue
+  ip_address: !secret huehost
+  token: !secret huekey
 
 - platform: postnl
   username: !secret email
