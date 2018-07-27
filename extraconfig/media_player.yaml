@@ -1,7 +1,5 @@
 - platform: plex
   entity_namespace: 'plex'
-- platform: sonos
-  interface_addr: !secret nashost
 - platform: webostv
   host: !secret tvhost
   name: Living Room TV  

@@ -157,6 +157,10 @@ sabnzbd:
 
 sensor: !include extraconfig/sensors.yaml
 
+sonos:
+  media_player:
+    interface_addr: !secret nashost
+
 sun:
 
 telegram_bot:
