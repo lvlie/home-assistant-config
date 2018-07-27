@@ -1,9 +1,13 @@
 *
 !automation/
 !custom_components/
+!custom_components/climate/
+!custom_components/sensor/
+!custom_components/switch/
 !groups/
 !extraconfig/
 !*.yaml
+!*.py
 !scenes
 !.gitignore
 google_calendars.yaml
