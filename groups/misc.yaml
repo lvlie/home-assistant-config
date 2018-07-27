@@ -27,3 +27,11 @@ misc:
     - sensor.mayo_battery_level
     - sensor.mayo_battery_state
 
+trash_pickup:
+  name: "Trash Pickup"
+  control: hidden
+  entities:
+    - sensor.trash_gft
+    - sensor.trash_papier
+    - sensor.trash_today
+    - sensor.trash_tomorrow

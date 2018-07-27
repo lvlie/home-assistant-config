@@ -1,0 +1,24 @@
+- alias: 'Trash - One day before'
+  id: trashdaybefore
+  trigger:
+  - platform: time
+    hours: 20
+    minutes: 0
+    seconds: 0
+  condition:
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '{{- (now().strftime("%Y-%m-%d")) == (as_timestamp(strptime(states.sensor.trash_gft.state, "%Y-%m-%d")) - (1 * 86400 )) | timestamp_custom("%Y-%m-%d") -}}'
+      - condition: template
+        value_template: '{{- (now().strftime("%Y-%m-%d")) == (as_timestamp(strptime(states.sensor.trash_papier.state, "%Y-%m-%d")) - (1 * 86400 )) | timestamp_custom("%Y-%m-%d") -}}'
+  action:
+  - service: notify.family
+    data_template:
+      message: >-
+        {% if (now().strftime("%Y-%m-%d")) == (as_timestamp(strptime(states.sensor.trash_gft.state, "%Y-%m-%d")) - (1 * 86400 )) | timestamp_custom("%Y-%m-%d") %}
+           Het is vandaag - {{ now().strftime("%Y-%m-%d") }}. Tuinafval wordt opgehaald op: {{ states.sensor.trash_gft.state }}!
+        {% endif %}
+        {% if (now().strftime("%Y-%m-%d")) == (as_timestamp(strptime(states.sensor.trash_papier.state, "%Y-%m-%d")) - (1 * 86400 )) | timestamp_custom("%Y-%m-%d") %}
+           Het is vandaag - {{ now().strftime("%Y-%m-%d") }}. Papier wordt opgehaald op: {{ states.sensor.trash_papier.state }}!
+        {% endif %}

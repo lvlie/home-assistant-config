@@ -79,6 +79,10 @@
   username: !secret email
   password: !secret postnlpw
 
+- platform: mijnafvalwijzer
+  postcode: !secret postcode
+  huisnummer: !secret huisnummer
+
 - platform: template
   sensors:
     woonkamer_temperatuur:

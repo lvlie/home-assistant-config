@@ -21,6 +21,7 @@ viewbuiten:
     - group.forecast
     - group.voortuin
     - group.achtertuin
+    - group.trash_pickup
 
 viewtech:
   view: yes
