@@ -18,6 +18,9 @@
       - condition: time
         after: '6:00:00'
         before: '22:00:00'
+      - condition: state
+        entity_id: group.all_devices
+        state: home
   action:
     - service: notify.family
       data_template:
@@ -48,6 +51,9 @@
       - condition: time
         after: '6:00:00'
         before: '22:00:00'
+      - condition: state
+        entity_id: group.all_devices
+        state: home
   action:
     - service: notify.family
       data_template:
