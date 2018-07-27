@@ -1,5 +1,6 @@
 *
 !automation/
+!custom_components/
 !groups/
 !extraconfig/
 !*.yaml
