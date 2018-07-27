@@ -19,6 +19,28 @@
         group_name: "Voortuin"
         scene_name: "Aan"
 
+- alias: "[LIGHT]: Turn off some garden lights at 22:30"
+  id: turnoffgardentime
+  trigger:
+    - platform: time
+      at: '22:30:00'
+    - platform: time
+      at: '23:00:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_automations
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.voortuin_oprit
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.overkapping_1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.overkapping_2
+
 - alias: "[LIGHT]: Turn off garden lights at sunrise"
   id: turnoffgarden
   trigger:
