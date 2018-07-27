@@ -21,6 +21,7 @@ woonkamer_other:
     - sensor.woonkamer_lux
     - sensor.woonkamer_temperatuur
     - sensor.toon_temperatuur
+    - sensor.delta_temp_kamer
     - sensor.woonkamer_switch
     - switch.tvkast
     - sensor.tvkast_power

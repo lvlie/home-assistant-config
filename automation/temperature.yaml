@@ -1,0 +1,59 @@
+- alias: Bericht sturen als buiten kouder dan kamer en binnen >23 graden en deur dicht is
+  id: binnenwarm
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.delta_temp_kamer
+      above: 1
+      for: 
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.toon_temperatuur
+        above: 23
+      - condition: state
+        entity_id: binary_sensor.achterdeur
+        state: 'off'
+      - condition: time
+        after: '6:00:00'
+        before: '22:00:00'
+  action:
+    - service: notify.family
+      data_template:
+        message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur open te zetten"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data_template:
+        message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur open te zetten"
+        language: 'nl'
+
+- alias: Bericht sturen als buiten warmer is dan de kamer en buiten >21 graden en deur open is
+  id: buitenwarm
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.delta_temp_kamer
+      below: -1
+      for: 
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.br_temperature
+        above: 21
+      - condition: state
+        entity_id: binary_sensor.achterdeur
+        state: 'on'
+      - condition: time
+        after: '6:00:00'
+        before: '22:00:00'
+  action:
+    - service: notify.family
+      data_template:
+        message: "Het is nu buiten {{ (float(states.sensor.delta_temp_kamer.state))*-1 }} graden warmer dan binnen in kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur dicht te doen"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data_template:
+        message: "Het is nu buiten {{ (float(states.sensor.delta_temp_kamer.state))*-1 }} graden warmer dan binnen in kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur dicht te doen"
+        language: 'nl'

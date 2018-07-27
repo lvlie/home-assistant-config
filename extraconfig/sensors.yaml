@@ -127,7 +127,7 @@
       unit_of_measurement: 'lux'
     toon_temperatuur:
       friendly_name: 'Toon temperatuur'
-      value_template: '{{states.climate.toon_van_eneco.attributes.current_temperature}}'
+      value_template: '{{states.climate.toon_van_eneco.attributes.current_temperature }}'
       unit_of_measurement: '°C'
 
     next_holiday:
@@ -154,3 +154,9 @@
       friendly_name: 'Next event date'
       value_template: '{{states.calendar.personal.attributes.start_time}}'
       icon_template: mdi:calendar
+
+    delta_temp_kamer:
+      value_template: '{{ ((float(states.sensor.toon_temperatuur.state)) - (float(states.sensor.br_temperature.state))) | round(2) }}' 
+      unit_of_measurement: 'Graden'
+      friendly_name: 'Delta temp Binnen - buiten'
+      icon_template: "mdi:thermometer"
