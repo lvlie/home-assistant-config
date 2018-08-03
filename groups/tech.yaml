@@ -36,6 +36,8 @@ smoke:
   name: Smoke sensors
   view: no
   entities:
+    - binary_sensor.co
+    - binary_sensor.smoke
     - sensor.hallway_nest_protect_beneden_co_status
     - sensor.hallway_nest_protect_beneden_smoke_status
     - sensor.upstairs_nest_protect_eerste_verdieping_co_status

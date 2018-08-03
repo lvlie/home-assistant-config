@@ -163,6 +163,8 @@ sonos:
 
 sun:
 
+switch: !include extraconfig/switch.yaml
+
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_ha_api

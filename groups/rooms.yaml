@@ -32,9 +32,9 @@ woonkamer_media:
   view: no
   entities:
     - media_player.living_room_tv
-    - media_player.woonkamer # sonos
+    - media_player.woonkamer_sonos
     - media_player.kitchen_speaker
-    - media_player.tvcast
+    - media_player.woonkamer_cast
 
 toilet:
   name: Toilet

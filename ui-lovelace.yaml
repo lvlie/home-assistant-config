@@ -1,0 +1,240 @@
+resources:
+  - url: /local/monster-card.js?v=0
+    type: js
+  - url: /local/bignumber-card.js?v=0
+    type: js
+  - url: /local/gauge-card.js?v=0
+    type: js
+
+name: Home
+background: radial-gradient(black, skyblue)
+views:
+  - title: Thuis
+    icon: mdi:home
+    theme: dark-mode
+    cards:
+      - type: custom:monster-card
+        card:
+          type: entities
+          title: Home presence
+        filter:
+          include:
+            - domain: device_tracker
+              state: home
+              options:
+                secondary_info: last-changed
+          exclude:
+            - entity_id: device_tracker.leon_galaxy_s8
+            - entity_id: device_tracker.mayo_iphone
+            - entity_id: device_tracker.imayo
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:gauge-card
+            title: Binnen
+            entity: sensor.woonkamer_temperatuur
+            min: 15
+            max: 35
+            severity:
+              red: 29
+              green: 15
+              amber: 25
+          - type: custom:gauge-card
+            title: Buiten
+            entity: sensor.br_temperature
+            min: -15
+            max: 40
+            severity:
+              red: 28
+              green: 20
+              amber: 24
+
+      - type: custom:bignumber-card
+        title: Luchtvochtigheid
+        entity: sensor.br_humidity
+        scale: 30px
+        from: left
+        min: 0
+        max: 100
+        severity:
+          - value: 35
+            style: 'var(--label-badge-red)'
+          - value: 70
+            style: 'var(--label-badge-green)'
+          - value: 90
+            style: 'var(--label-badge-yellow)'
+          - value: 100
+            style: 'var(--label-badge-red)'
+
+      - type: "custom:monster-card"
+        show_empty: false
+        card:
+          type: entities
+          title: Lights on
+        filter:
+          include:
+            - domain: light
+              state: 'on'
+          exclude:
+            - entity_id: light.achtertuin
+            - entity_id: light.beneden
+            - entity_id: light.buiten
+            - entity_id: light.eetkamer
+            - entity_id: light.garage
+            - entity_id: light.gotosleep
+            - entity_id: light.hal
+            - entity_id: light.keuken
+            - entity_id: light.toilet
+            - entity_id: light.trapkast
+            - entity_id: light.voortuin
+            - entity_id: light.woonkamer
+
+      - type: "custom:monster-card"
+        show_empty: false
+        card:
+          type: entities
+          title: Things on
+        filter:
+          include:
+            - entity_id: input_boolean.wasmachine_status
+              state: 'on'
+            - entity_id: switch.woonkamer_tv
+              state: 'on'
+            - entity_id: binary_sensor.co
+              state: 'on'
+            - entity_id: binary_sensor.smoke
+              state: 'on'
+          exclude:
+            - entity_id: light.achtertuin
+            - entity_id: light.beneden
+            - entity_id: light.buiten
+            - entity_id: light.eetkamer
+            - entity_id: light.garage
+
+      - type: "custom:monster-card"
+        show_empty: false
+        card:
+          type: entities
+          title: Doors open
+        filter:
+          include:
+            - entity_id: "binary_sensor.*deur"
+              state: 'on'
+              options:
+                secondary_info: last-changed
+
+      - type: "custom:monster-card"
+        show_empty: false
+        card:
+          type: entities
+          title: Motion triggered
+        filter:
+          include:
+            - entity_id: "binary_sensor.*motion"
+              state: 'on'
+              options:
+                secondary_info: last-changed
+
+      - type: "custom:monster-card"
+        show_empty: false
+        card:
+          type: entities
+          title: Media player on
+        filter:
+          include:
+            - domain: media_player
+              state: 'playing'
+
+  - title: Debug
+    icon: mdi:settings
+    cards:
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All binary sensors
+        filter:
+          include:
+            - domain: binary_sensor
+      - type: "custom:monster-card"
+        card:
+          type: glance
+          title: All cameras
+        filter:
+          include:
+            - domain: camera
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All climate
+        filter:
+          include:
+            - domain: climate
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All covers
+        filter:
+          include:
+            - domain: cover
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All device trackers
+        filter:
+          include:
+            - domain: device_tracker
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All input booleans
+        filter:
+          include:
+            - domain: input_boolean
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All lights
+        filter:
+          include:
+            - domain: light
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All media players
+        filter:
+          include:
+            - domain: media_player
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All sensors
+        filter:
+          include:
+            - domain: sensor
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All sun
+        filter:
+          include:
+            - domain: sun
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All switches
+        filter:
+          include:
+            - domain: switch
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: All zwave
+        filter:
+          include:
+            - domain: zwave
+
+#          exclude:
+#            - domain: automation
+#            - domain: calendar
+#            - domain: group
+#            - domain: zone

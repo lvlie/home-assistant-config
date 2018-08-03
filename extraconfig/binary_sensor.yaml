@@ -16,3 +16,47 @@
       friendly_name: Achterdeur
       value_template: >
         {{ states.sensor.achterdeur_open_value.state == '22' }}
+    co:
+      friendly_name: "CO status"
+      device_class: gas
+      value_template: >-
+        {{ not is_state('sensor.attic_nest_protect_tweede_verdieping_co_status', 'Ok')
+           and not is_state('sensor.hallway_nest_protect_beneden_co_status', 'Ok')
+           and not is_state('sensor.upstairs_nest_protect_eerste_verdieping_co_status', 'Ok') }}
+    smoke:
+      friendly_name: "Smoke status"
+      device_class: smoke
+      value_template: >-
+        {{ not is_state('sensor.attic_nest_protect_tweede_verdieping_smoke_status', 'Ok')
+           and not is_state('sensor.hallway_nest_protect_beneden_smoke_status', 'Ok')
+           and not is_state('sensor.upstairs_nest_protect_eerste_verdieping_smoke_status', 'Ok') }}
+    garage_motion:
+      friendly_name: "Garage motion"
+      device_class: motion
+      value_template: "{{ is_state('sensor.garage_motion_sensor', 'on') }}"
+      delay_off:
+        minutes: 2
+    hal_motion:
+      friendly_name: "Hal motion"
+      device_class: motion
+      value_template: "{{ is_state('sensor.hal_motion_sensor', 'on') }}"
+      delay_off:
+        minutes: 2
+    toilet_motion:
+      friendly_name: "Toilet motion"
+      device_class: motion
+      value_template: "{{ is_state('sensor.toilet_motion_sensor', 'on') }}"
+      delay_off:
+        minutes: 2
+    trapkast_motion:
+      friendly_name: "Trapkast motion"
+      device_class: motion
+      value_template: "{{ is_state('sensor.trapkast_motion_sensor', 'on') }}"
+      delay_off:
+        minutes: 1
+    woonkamer_motion:
+      friendly_name: "Woonkamer motion"
+      device_class: motion
+      value_template: "{{ is_state('sensor.woonkamer_motion_sensor', 'on') }}"
+      delay_off:
+        minutes: 5
