@@ -86,6 +86,7 @@ views:
             - entity_id: light.keuken
             - entity_id: light.toilet
             - entity_id: light.trapkast
+            - entity_id: light.tvkamer
             - entity_id: light.voortuin
             - entity_id: light.woonkamer
 
@@ -174,6 +175,7 @@ views:
             - entity_id: light.keuken
             - entity_id: light.toilet
             - entity_id: light.trapkast
+            - entity_id: light.tvkamer
             - entity_id: light.voortuin
             - entity_id: light.woonkamer
 
