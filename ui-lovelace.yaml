@@ -145,6 +145,98 @@ views:
             - domain: media_player
               state: 'playing'
 
+  - title: Control
+    icon: mdi:google-controller
+    cards:
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Covers
+        filter:
+          include:
+            - domain: cover
+
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Lights
+        filter:
+          include:
+            - domain: light
+          exclude:
+            - entity_id: light.achtertuin
+            - entity_id: light.beneden
+            - entity_id: light.buiten
+            - entity_id: light.eetkamer
+            - entity_id: light.garage
+            - entity_id: light.gotosleep
+            - entity_id: light.hal
+            - entity_id: light.keuken
+            - entity_id: light.toilet
+            - entity_id: light.trapkast
+            - entity_id: light.voortuin
+            - entity_id: light.woonkamer
+
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Switches
+        filter:
+          include:
+            - domain: switch
+
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Inputs
+        filter:
+          include:
+            - domain: input_boolean
+
+  - title: Security
+    icon: mdi:cctv
+    cards:
+      - type: picture-entity
+        entity: camera.front_door
+      - type: picture-entity
+        entity: camera.garage
+      - type: picture-entity
+        entity: camera.back_yard
+        show_info: false
+
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Doors
+        filter:
+          include:
+            - entity_id: "binary_sensor.*deur"
+              options:
+                secondary_info: last-changed
+
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Motion inside
+        filter:
+          include:
+            - entity_id: "binary_sensor.*motion"
+              options:
+                secondary_info: last-changed
+
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          title: Motion outside
+        filter:
+          include:
+            - entity_id: "binary_sensor.*camera_person*"
+              options:
+                secondary_info: last-changed
+            - entity_id: "binary_sensor.*camera*activity"
+              options:
+                secondary_info: last-changed
+
   - title: Debug
     icon: mdi:settings
     cards:
