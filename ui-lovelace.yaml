@@ -50,7 +50,7 @@ views:
               amber: 500
 
       - type: weather-forecast
-        entity: weather.dark_sky
+        entity: weather.home
 
       - type: "custom:monster-card"
         show_empty: false
