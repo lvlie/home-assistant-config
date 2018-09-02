@@ -56,16 +56,17 @@
   api_key: !secret gmaps_secret
   origin: zone.work_leon
   destination: zone.home
-- platform: google_travel_time
+
+- platform: waze_travel_time
   name: Leon to home
-  api_key: !secret gmaps_secret
   origin: device_tracker.google_maps_109202381251367736104
   destination: zone.home
-- platform: google_travel_time
+  region: EU
+- platform: waze_travel_time
   name: Mayo to home
-  api_key: !secret gmaps_secret
   origin: device_tracker.google_maps_112491877133535749167
   destination: zone.home
+  region: EU
 
 - platform: plex
   host: !secret nashost
