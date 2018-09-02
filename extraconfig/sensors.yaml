@@ -91,7 +91,7 @@
       unit_of_measurement: '°C'
     woonkamer_lux:
       friendly_name: 'Woonkamer lux'
-      value_template: '{{states.sensor.woonkamer_motion_sensor.attributes.lux}}'
+      value_template: '{{states.sensor.woonkamer_motion_sensor.attributes.lx}}'
       unit_of_measurement: 'lux'
     hal_temperatuur:
       friendly_name: 'Hal temperatuur'
@@ -99,7 +99,7 @@
       unit_of_measurement: '°C'
     hal_lux:
       friendly_name: 'Hal lux'
-      value_template: '{{states.sensor.hal_motion_sensor.attributes.lux}}'
+      value_template: '{{states.sensor.hal_motion_sensor.attributes.lx}}'
       unit_of_measurement: 'lux'
     toilet_temperatuur:
       friendly_name: 'Toilet temperatuur'
@@ -107,7 +107,7 @@
       unit_of_measurement: '°C'
     toilet_lux:
       friendly_name: 'Toilet lux'
-      value_template: '{{states.sensor.toilet_motion_sensor.attributes.lux}}'
+      value_template: '{{states.sensor.toilet_motion_sensor.attributes.lx}}'
       unit_of_measurement: 'lux'
     garage_temperatuur:
       friendly_name: 'Garage temperatuur'
@@ -115,7 +115,7 @@
       unit_of_measurement: '°C'
     garage_lux:
       friendly_name: 'Garage lux'
-      value_template: '{{states.sensor.garage_motion_sensor.attributes.lux}}'
+      value_template: '{{states.sensor.garage_motion_sensor.attributes.lx}}'
       unit_of_measurement: 'lux'
     trapkast_temperatuur:
       friendly_name: 'Trapkast temperatuur'
@@ -123,7 +123,7 @@
       unit_of_measurement: '°C'
     trapkast_lux:
       friendly_name: 'Trapkast lux'
-      value_template: '{{states.sensor.trapkast_motion_sensor.attributes.lux}}'
+      value_template: '{{states.sensor.trapkast_motion_sensor.attributes.lx}}'
       unit_of_measurement: 'lux'
     toon_temperatuur:
       friendly_name: 'Toon temperatuur'
