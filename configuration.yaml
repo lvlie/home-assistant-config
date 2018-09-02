@@ -186,6 +186,11 @@ tts:
 rfxtrx:
   device: /dev/ttyUSB0
 
+weather:
+  - platform: darksky
+    name: Home
+    api_key: !secret darkskyapi
+
 zone: !include extraconfig/zones.yaml
 
 zwave:

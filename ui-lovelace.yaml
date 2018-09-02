@@ -40,31 +40,17 @@ views:
               green: 15
               amber: 25
           - type: custom:gauge-card
-            title: Buiten
-            entity: sensor.br_temperature
-            min: -15
-            max: 40
+            title: Energy Usage
+            entity: sensor.power_current
+            min: 0
+            max: 3000
             severity:
-              red: 28
-              green: 20
-              amber: 24
+              red: 2000
+              green: 0
+              amber: 500
 
-      - type: custom:bignumber-card
-        title: Luchtvochtigheid
-        entity: sensor.br_humidity
-        scale: 30px
-        from: left
-        min: 0
-        max: 100
-        severity:
-          - value: 35
-            style: 'var(--label-badge-red)'
-          - value: 70
-            style: 'var(--label-badge-green)'
-          - value: 90
-            style: 'var(--label-badge-yellow)'
-          - value: 100
-            style: 'var(--label-badge-red)'
+      - type: weather-forecast
+        entity: weather.dark_sky
 
       - type: "custom:monster-card"
         show_empty: false
