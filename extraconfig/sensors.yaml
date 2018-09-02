@@ -86,6 +86,10 @@
 
 - platform: template
   sensors:
+    outside_temperature:
+      friendly_name: 'Buiten temperatuur'
+      value_template: '{{states.weather.home.attributes.temperature}}'
+      unit_of_measurement: '°C'
     woonkamer_temperatuur:
       friendly_name: 'Woonkamer temperatuur'
       value_template: '{{states.sensor.woonkamer_motion_sensor.attributes.temperature}}'
@@ -157,7 +161,7 @@
       icon_template: mdi:calendar
 
     delta_temp_kamer:
-      value_template: '{{ ((float(states.sensor.toon_temperatuur.state)) - (float(states.sensor.br_temperature.state))) | round(2) }}' 
+      value_template: '{{ ((float(states.sensor.toon_temperatuur.state)) - (float(states.sensor.outside_temperature.state))) | round(2) }}' 
       unit_of_measurement: 'Graden'
       friendly_name: 'Delta temp Binnen - buiten'
       icon_template: "mdi:thermometer"
