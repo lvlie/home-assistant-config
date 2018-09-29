@@ -11,8 +11,6 @@
     - condition: state
       entity_id: input_boolean.disable_automations
       state: 'off'
-    - condition: sun
-      after: sunset
     - condition: time
       before: '18:59:59'
   action:
@@ -34,8 +32,6 @@
     - condition: state
       entity_id: input_boolean.disable_automations
       state: 'off'
-    - condition: sun
-      after: sunset
     - condition: time
       before: '22:00:00'
   action:
