@@ -11,7 +11,6 @@ background: radial-gradient(black, skyblue)
 views:
   - title: Thuis
     icon: mdi:home
-    theme: dark-mode
     cards:
       - type: custom:monster-card
         card:
@@ -47,7 +46,7 @@ views:
             severity:
               red: 2000
               green: 0
-              amber: 500
+              amber: 1000
 
       - type: weather-forecast
         entity: weather.home
@@ -131,6 +130,206 @@ views:
           include:
             - domain: media_player
               state: 'playing'
+
+      - type: map
+        title: Mayo location
+        aspect_ratio: 100%
+        default_zoom: 8
+        entities:
+          - zone.home
+          - device_tracker.google_maps_112491877133535749167  # Mayo
+#          - device_tracker.google_maps_109202381251367736104  # Leon
+
+  - title: Map
+    icon: mdi:map
+    panel: true
+    cards:
+      - type: picture-elements
+        image: /local/map.png
+        elements:
+          # LIGHTS
+          - type: state-icon
+            tap_action: toggle
+            entity: light.tv_links
+            style:
+              top: 7%
+              left: 50%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.tv_rechts
+            style:
+              top: 7%
+              left: 68%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.woonkamer_achter
+            style:
+              top: 58%
+              left: 50%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.woonkamer_centraal
+            style:
+              top: 25%
+              left: 60.3%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.eettafel
+            style:
+              top: 51%
+              left: 78%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.keuken_voor
+            style:
+              top: 48%
+              left: 90%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.keuken_achter
+            style:
+              top: 48%
+              left: 95%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.toilet_nis
+            style:
+              top: 9%
+              left: 85%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.toilet_plafond
+            style:
+              top: 9%
+              left: 87%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.trapkast_boven
+            style:
+              top: 19%
+              left: 76%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.hal_centraal
+            style:
+              top: 19%
+              left: 87%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.garage_centraal
+            style:
+              top: 80%
+              left: 60%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.voortuin_oprit
+            style:
+              top: 66%
+              left: 82%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.achtertuin_gevel
+            style:
+              top: 68%
+              left: 43%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.overkapping_1
+            style:
+              top: 92%
+              left: 8%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.overkapping_2
+            style:
+              top: 81%
+              left: 3%
+
+          # SENSORS
+          - type: state-label
+            entity: sensor.outside_temperature
+            style:
+              top: 50%
+              left: 20%
+              color: black
+          - type: state-label
+            entity: sensor.woonkamer_temperatuur
+            style:
+              top: 25%
+              left: 72%
+              color: black
+          - type: state-icon
+            entity: binary_sensor.woonkamer_motion
+            style:
+              top: 58%
+              left: 48%
+          - type: state-label
+            entity: sensor.garage_temperatuur
+            style:
+              top: 80%
+              left: 49%
+              color: black
+          - type: state-icon
+            entity: binary_sensor.garage_motion
+            style:
+              top: 80%
+              left: 46%
+          - type: state-label
+            entity: sensor.trapkast_temperatuur
+            style:
+              top: 15%
+              left: 76%
+              color: black
+          - type: state-label
+            entity: sensor.hal_temperatuur
+            style:
+              top: 23%
+              left: 82%
+              color: black
+          - type: state-icon
+            entity: binary_sensor.hal_motion
+            style:
+              top: 23%
+              left: 79.5%
+          - type: state-icon
+            entity: binary_sensor.voordeur
+            style:
+              top: 18%
+              left: 98%
+          - type: state-icon
+            entity: binary_sensor.achterdeur
+            style:
+              top: 33%
+              left: 44.5%
+
+          # CAMERAS
+          - type: image
+            entity: camera.front_door
+            camera_image: camera.front_door
+            style:
+              top: 8%
+              left: 95%
+              width: 10%
+              border: 2px solid red
+              border-radius: 10%
+          - type: image
+            entity: camera.garage
+            camera_image: camera.garage
+            style:
+              top: 75%
+              left: 81%
+              width: 10%
+              border: 2px solid red
+              border-radius: 10%
+          - type: image
+            entity: camera.back_yard
+            camera_image: camera.back_yard
+            style:
+              top: 80%
+              left: 10%
+              width: 10%
+              border: 2px solid red
+              border-radius: 10%
 
   - title: Control
     icon: mdi:google-controller
