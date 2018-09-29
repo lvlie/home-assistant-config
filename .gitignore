@@ -16,3 +16,4 @@ known_devices.yaml
 entity_registry.yaml
 extraconfig/cover.yaml
 extraconfig/zones.yaml
+ip_bans.yaml
