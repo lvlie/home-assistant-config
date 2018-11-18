@@ -1,5 +1,5 @@
-- alias: "[WORK]: notify when agenda item starts"
-  id: worknotify
+- alias: "notify when agenda item starts"
+  id: "335714005"
   trigger:
     platform: state
     entity_id: calendar.ing

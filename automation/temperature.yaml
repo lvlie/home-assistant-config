@@ -1,5 +1,5 @@
-- alias: Bericht sturen als buiten kouder dan kamer en binnen >23 graden en deur dicht is
-  id: binnenwarm
+- alias: Bericht sturen als deur open moet
+  id: "308473451"
   trigger:
     - platform: numeric_state
       entity_id: sensor.delta_temp_kamer
@@ -31,8 +31,8 @@
         message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur open te zetten"
         language: 'nl'
 
-- alias: Bericht sturen als buiten warmer is dan de kamer en buiten >21 graden en deur open is
-  id: buitenwarm
+- alias: Bericht sturen als deur dicht moet
+  id: "312546354"
   trigger:
     - platform: numeric_state
       entity_id: sensor.delta_temp_kamer

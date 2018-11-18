@@ -1,14 +1,10 @@
-- alias: "[LIGHT]: Turn on garden lights at sunset"
-  id: turnongarden
+- alias: "Turn on garden lights at sunset"
+  id: "233415745"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
     below: 2.0
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: hue.hue_activate_scene
       data:
@@ -19,17 +15,15 @@
         group_name: "Voortuin"
         scene_name: "Aan"
 
-- alias: "[LIGHT]: Turn off some garden lights at 22:30"
-  id: turnoffgardentime
+- alias: "Turn off some garden lights at 22:00 and later if on"
+  id: "239571992"
   trigger:
+    - platform: time
+      at: '22:00:00'
     - platform: time
       at: '22:30:00'
     - platform: time
       at: '23:00:00'
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: homeassistant.turn_off
       data:
@@ -41,17 +35,13 @@
       data:
         entity_id: light.overkapping_2
 
-- alias: "[LIGHT]: Turn off garden lights at sunrise"
-  id: turnoffgarden
+- alias: "Turn off garden lights at sunrise"
+  id: "244478861"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
     above: 2.0
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: homeassistant.turn_off
       data:

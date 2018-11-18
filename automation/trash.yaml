@@ -1,5 +1,5 @@
 - alias: 'Trash - One day before'
-  id: trashdaybefore
+  id: "320389676"
   trigger:
   - platform: time
     hours: 20

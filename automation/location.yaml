@@ -1,5 +1,5 @@
-- alias: "[LOCATION]: Notify when Marjolein leaves a zone"
-  id: notifymayoleave
+- alias: "Notify when Marjolein leaves a zone"
+  id: "280194800"
   trigger:
     - platform: zone
       entity_id: device_tracker.google_maps_112491877133535749167
@@ -10,9 +10,9 @@
       event: leave
       zone: zone.mayo_pa_en_ma
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
+    - condition: time
+      after: '14:00:00'
+      before: '23:00:00'
   action:
     - service: notify.chrome
       data_template:
@@ -27,17 +27,14 @@
       data:
         message: Marjolein komt naar huis, nog {{states('sensor.mayo_to_home')}} minuten
 
-- alias: "[LOCATION]: Notify when Leon leaves a zone"
-  id: notifyleonleave
+- alias: "Notify when Leon leaves a zone"
+  id: "284236701"
   trigger:
     - platform: zone
       entity_id: device_tracker.google_maps_109202381251367736104
       event: leave
       zone: zone.work_leon
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: time
       after: '14:00:00'
       before: '23:00:00'

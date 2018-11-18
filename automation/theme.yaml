@@ -1,5 +1,5 @@
 - alias: Automatic Theme Change
-  id: autotheme
+  id: "316586773"
   initial_state: 'on' 
   trigger:
     - platform: homeassistant

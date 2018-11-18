@@ -1,5 +1,5 @@
-- alias: "[LIGHT]: Turn on dinner lights"
-  id: turnondinnerlights
+- alias: "Turn on dinner lights"
+  id: "249433078"
   trigger:
     - platform: time
       at: '17:00:00'
@@ -8,9 +8,6 @@
       value_template: '{{ state.attributes.elevation }}'
       below: 3.5
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: time
       before: '18:59:59'
   action:
@@ -19,8 +16,8 @@
         group_name: "Woonkamer"
         scene_name: "Eten"
 
-- alias: "[LIGHT]: Turn on TV lights"
-  id: turnontvlights
+- alias: "Turn on TV lights"
+  id: "254566862"
   trigger:
     - platform: time
       at: '19:00:00'
@@ -29,9 +26,6 @@
       value_template: '{{ state.attributes.elevation }}'
       below: 3.5
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: time
       before: '22:00:00'
   action:
@@ -40,37 +34,29 @@
         group_name: "Woonkamer"
         scene_name: "TV kijken"
 
-- alias: "[LIGHT]: Turn off living room lights at 2230"
-  id: turnofflivingroom
+- alias: "Turn off living room lights at 2230"
+  id: "259169050"
   trigger:
     platform: time
     at: '22:15:00'
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: light.turn_off
       data:
         entity_id: light.Woonkamer
         transition: 900
 
-- alias: "[LIGHT]: Turn off kitchen lights at 2030"
-  id: turnofflivingroom
+- alias: "Turn off kitchen lights at 2030"
+  id: "259169050"
   trigger:
     platform: time
     at: '20:30:00'
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: light.turn_off
       data:
         entity_id: light.keuken
 
-- alias: "[LIGHT]: Turn on light early morning on workdays when movement"
-  id: triggeredonmorning
+- alias: "Turn on light early morning on workdays when movement"
+  id: "267931149"
   trigger:
     platform: state
     entity_id: sensor.woonkamer_motion_sensor
@@ -79,9 +65,6 @@
     - condition: time
       after: '5:30:00'
       before: '9:00:00'
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: state
       entity_id: light.woonkamer
       state: 'off'
@@ -96,8 +79,8 @@
         group_name: "Woonkamer"
         scene_name: "Ochtend"
 
-- alias: "[LIGHT] Turn off light 10 minutes after last movement"
-  id: timedoffmorning
+- alias: "Turn off light 10 minutes after last movement"
+  id: "272046785"
   trigger:
     platform: state
     entity_id: sensor.woonkamer_motion_sensor
@@ -108,9 +91,6 @@
     - condition: time
       after: '5:30:00'
       before: '9:10:00'
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: sun
       before: sunrise
   action:
@@ -119,17 +99,14 @@
         entity_id: light.Woonkamer
         transition: 120
 
-- alias: "[LIGHT]: Turn off light after sunrise"
-  id: tiggeredoffmorning
+- alias: "Turn off light after sunrise"
+  id: "276096963"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
     above: 3.5
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: state
       entity_id: light.woonkamer
       state: 'on'

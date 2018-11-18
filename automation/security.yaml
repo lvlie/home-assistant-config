@@ -1,14 +1,11 @@
-- alias: "[SECURITY]: Notify when person detected and someone is home"
-  id: notifypersonhome
+- alias: "Notify when person detected and someone is home"
+  id: "288248404"
   trigger:
     platform: state
     entity_id: binary_sensor.front_door_camera_person_detected
     from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: state
       entity_id: group.all_devices
       state: home
@@ -24,17 +21,14 @@
       data:
         message: 'A person was detected on camera voortuin'
 
-- alias: "[SECURITY]: Notify when person detected at night"
-  id: notifypersonnight
+- alias: "Notify when person detected at night"
+  id: "292285422"
   trigger:
     platform: state
     entity_id: binary_sensor.front_door_camera_person_detected
     from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: state
       entity_id: light.woonkamer
       state: 'off'
@@ -53,6 +47,7 @@
       data:
         entity_id: light.keuken
         flash: long
+    - delay: "00:00:02"
     - service: light.turn_off
       data:
         entity_id: light.hal
@@ -60,8 +55,8 @@
       data:
         entity_id: light.keuken
 
-- alias: "[SECURITY]: Notify when door opens in the night"
-  id: notifydooropennight
+- alias: "Notify when door opens in the night"
+  id: "296291488"
   trigger:
     - platform: state
       entity_id: binary_sensor.voordeur
@@ -72,11 +67,8 @@
       from: 'off'
       to: 'on'
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: time
-      after: '23:30:00'
+      after: '23:59:00'
       before: '05:30:00'
   action:
     - service: notify.ha_bot
@@ -90,6 +82,7 @@
       data:
         entity_id: light.keuken
         flash: long
+    - delay: "00:00:02"
     - service: light.turn_off
       data:
         entity_id: light.hal
@@ -97,8 +90,8 @@
       data:
         entity_id: light.keuken
 
-- alias: "[SECURITY]: Notify when door opens and no-one is home"
-  id: notifydooropennothome
+- alias: "Notify when door opens and no-one is home"
+  id: "300302896"
   trigger:
     - platform: state
       entity_id: binary_sensor.voordeur
@@ -109,9 +102,6 @@
       from: 'off'
       to: 'on'
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: state
       entity_id: group.all_devices
       state: not_home
@@ -133,6 +123,7 @@
       data:
         entity_id: light.keuken
         flash: long
+    - delay: "00:00:02"
     - service: light.turn_off
       data:
         entity_id: light.hal
@@ -140,8 +131,8 @@
       data:
         entity_id: light.keuken
 
-- alias: "[SECURITY]: Notify when door opens while on vacation"
-  id: notifydooropenvacation
+- alias: "Notify when door opens while on vacation"
+  id: "304304806"
   trigger:
     - platform: state
       entity_id: binary_sensor.voordeur
@@ -152,9 +143,6 @@
       from: 'off'
       to: 'on'
   condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
     - condition: state
       entity_id: input_boolean.vacation
       state: 'on'
@@ -170,6 +158,7 @@
       data:
         entity_id: light.keuken
         flash: long
+    - delay: "00:00:05"
     - service: light.turn_off
       data:
         entity_id: light.hal

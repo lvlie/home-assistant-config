@@ -1,48 +1,36 @@
-- alias: "[WASH]: Washingmachine is on"
-  id: washon
+- alias: "Washingmachine is on"
+  id: "324205123"
   trigger:
     platform: numeric_state
     entity_id: sensor.wasmachine_power
     above: 10
     for:
       minutes: 5
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.wasmachine_status
 
-- alias: "[WASH]: Washingmachine is off"
-  id: washoff
+- alias: "Washingmachine is off"
+  id: "328046780"
   trigger:
     platform: numeric_state
     entity_id: sensor.wasmachine_power
     below: 2
     for:
       minutes: 1
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.wasmachine_status
 
-- alias: "[WASH]: Notify when washingmachine is done"
-  id: washnotify
+- alias: "Notify when washingmachine is done"
+  id: "331895672"
   trigger:
     - platform: state
       entity_id: input_boolean.wasmachine_status
       from: 'on'
       to: 'off'
-  condition:
-    - condition: state
-      entity_id: input_boolean.disable_automations
-      state: 'off'
   action:
     - service: notify.chrome
       data_template:
