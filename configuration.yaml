@@ -10,16 +10,6 @@ homeassistant:
     group.all_devices:
       hidden: false
       friendly_name: Presence
-    sensor.tvkast_power2:
-      hidden: true
-    sensor.wasmachine_power_2:
-      hidden: true
-    sensor.achtertuin_power_2:
-      hidden: true
-    sensor.voordeur_open_value:
-      hidden: true
-    sensor.achterdeur_open_value:
-      hidden: true
     camera.back_yard:
       friendly_name: "Back Yard"
     sensor.server_current_power:
@@ -106,9 +96,6 @@ input_boolean:
   vacation:
     name: Vacation
     icon: mdi:routes
-  disable_automations:
-    name: Disable automations
-    icon: mdi:cancel
   wasmachine_status:
     name: Wasmachine status
     icon: mdi:washing-machine
@@ -121,6 +108,8 @@ light: !include extraconfig/lightgroups.yaml
 logbook:
   exclude:
     entities:
+      - binary_sensor.front_door_camera_sound_detected
+      - binary_sensor.garage_camera_sound_detected
       - sensor.date
       - sensor.time
 
@@ -131,14 +120,6 @@ media_player: !include extraconfig/media_player.yaml
 nest:
   client_id: !secret nestid
   client_secret: !secret nestsecret
-  binary_sensors:
-    monitored_conditions:
-      - 'person_detected'
-      - 'sound_detected'
-  sensors:
-    monitored_conditions:
-      - 'co_status'
-      - 'smoke_status'
 
 notify: !include extraconfig/notify.yaml
 
@@ -148,6 +129,7 @@ recorder:
   exclude:
     domains:
       - automation
+      - binary_sensor
       - calendar
       - groups
       - light
