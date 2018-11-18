@@ -9,10 +9,12 @@ resources:
 name: Home
 background: radial-gradient(black, skyblue)
 views:
-  - title: Thuis
+  - id: 0  # Automatically created id
+    title: Thuis
     icon: mdi:home
     cards:
-      - type: custom:monster-card
+      - id: a9ab5cebab9342d8a53a2bd2daa58578  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Home presence
@@ -27,7 +29,8 @@ views:
             - entity_id: device_tracker.mayo_iphone
             - entity_id: device_tracker.imayo
 
-      - type: horizontal-stack
+      - id: 5041eaeb9f4842e9890f2e257ec12549  # Automatically created id
+        type: horizontal-stack
         cards:
           - type: custom:gauge-card
             title: Binnen
@@ -48,10 +51,15 @@ views:
               green: 0
               amber: 1000
 
-      - type: weather-forecast
+      - type: thermostat
+        entity: climate.toon_van_eneco
+
+      - id: ad7c6ef8c2f249069445a702a31e492d  # Automatically created id
+        type: weather-forecast
         entity: weather.home
 
-      - type: "custom:monster-card"
+      - id: ca70c8256ab84fccb0062c5027169bbd  # Automatically created id
+        type: custom:monster-card
         show_empty: false
         card:
           type: entities
@@ -59,7 +67,7 @@ views:
         filter:
           include:
             - domain: light
-              state: 'on'
+              state: on
           exclude:
             - entity_id: light.achtertuin
             - entity_id: light.beneden
@@ -75,7 +83,8 @@ views:
             - entity_id: light.voortuin
             - entity_id: light.woonkamer
 
-      - type: "custom:monster-card"
+      - id: b77430e9140c4c04971a448e92843c24  # Automatically created id
+        type: custom:monster-card
         show_empty: false
         card:
           type: entities
@@ -83,13 +92,13 @@ views:
         filter:
           include:
             - entity_id: input_boolean.wasmachine_status
-              state: 'on'
+              state: on
             - entity_id: switch.woonkamer_tv
-              state: 'on'
+              state: on
             - entity_id: binary_sensor.co
-              state: 'on'
+              state: on
             - entity_id: binary_sensor.smoke
-              state: 'on'
+              state: on
           exclude:
             - entity_id: light.achtertuin
             - entity_id: light.beneden
@@ -97,31 +106,34 @@ views:
             - entity_id: light.eetkamer
             - entity_id: light.garage
 
-      - type: "custom:monster-card"
+      - id: 0c671b200a0840bb815668b3a56362a9  # Automatically created id
+        type: custom:monster-card
         show_empty: false
         card:
           type: entities
           title: Doors open
         filter:
           include:
-            - entity_id: "binary_sensor.*deur"
-              state: 'on'
+            - entity_id: binary_sensor.*deur
+              state: on
               options:
                 secondary_info: last-changed
 
-      - type: "custom:monster-card"
+      - id: a5ed04aa366c40158812df72ccf450af  # Automatically created id
+        type: custom:monster-card
         show_empty: false
         card:
           type: entities
           title: Motion triggered
         filter:
           include:
-            - entity_id: "binary_sensor.*motion"
-              state: 'on'
+            - entity_id: binary_sensor.*motion
+              state: on
               options:
                 secondary_info: last-changed
 
-      - type: "custom:monster-card"
+      - id: feb5c3915c1d462f96577e947c0874b7  # Automatically created id
+        type: custom:monster-card
         show_empty: false
         card:
           type: entities
@@ -129,22 +141,24 @@ views:
         filter:
           include:
             - domain: media_player
-              state: 'playing'
+              state: playing
 
-      - type: map
+      - id: fca1196387484255bb5728c86baa9306  # Automatically created id
+        type: map
         title: Mayo location
         aspect_ratio: 100%
         default_zoom: 8
         entities:
           - zone.home
-          - device_tracker.google_maps_112491877133535749167  # Mayo
-#          - device_tracker.google_maps_109202381251367736104  # Leon
+          - device_tracker.google_maps_112491877133535749167  #  - device_tracker.google_maps_109202381251367736104          # Leon
 
-  - title: Map
+  - id: 1  # Automatically created id
+    title: Map
     icon: mdi:map
     panel: true
     cards:
-      - type: picture-elements
+      - id: 0222cefa82c146ecb1311d1d848a40dc  # Automatically created id
+        type: picture-elements
         image: /local/map.png
         elements:
           # LIGHTS
@@ -331,10 +345,12 @@ views:
               border: 2px solid red
               border-radius: 10%
 
-  - title: Control
+  - id: 2  # Automatically created id
+    title: Control
     icon: mdi:google-controller
     cards:
-      - type: "custom:monster-card"
+      - id: bcb58e108e974e4982e906d30801381b  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Covers
@@ -342,7 +358,8 @@ views:
           include:
             - domain: cover
 
-      - type: "custom:monster-card"
+      - id: 88b1797e53d840fc973d0046132138c1  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Lights
@@ -364,7 +381,8 @@ views:
             - entity_id: light.voortuin
             - entity_id: light.woonkamer
 
-      - type: "custom:monster-card"
+      - id: d7e73537843c4edcbb602cbb8f88293c  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Switches
@@ -372,7 +390,8 @@ views:
           include:
             - domain: switch
 
-      - type: "custom:monster-card"
+      - id: ef287b226cba4de1b9e14966ac35c54c  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Inputs
@@ -380,131 +399,151 @@ views:
           include:
             - domain: input_boolean
 
-  - title: Security
+  - id: 3  # Automatically created id
+    title: Security
     icon: mdi:cctv
     cards:
-      - type: picture-entity
+      - id: 11a1e86f1d0f4c73b3819e26388395c8  # Automatically created id
+        type: picture-entity
         entity: camera.front_door
-      - type: picture-entity
+      - id: 9a08c0e845bc4ce08be67f20c306aa64  # Automatically created id
+        type: picture-entity
         entity: camera.garage
-      - type: picture-entity
+      - id: 4b2bc514228c45838e44ce6be86697c6  # Automatically created id
+        type: picture-entity
         entity: camera.back_yard
         show_info: false
 
-      - type: "custom:monster-card"
+      - id: e1cade06a47d496e9172c74bbf05ab9a  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Doors
         filter:
           include:
-            - entity_id: "binary_sensor.*deur"
+            - entity_id: binary_sensor.*deur
               options:
                 secondary_info: last-changed
 
-      - type: "custom:monster-card"
+      - id: d5954bfc682b4394a8b6aacca243071a  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Motion inside
         filter:
           include:
-            - entity_id: "binary_sensor.*motion"
+            - entity_id: binary_sensor.*motion
               options:
                 secondary_info: last-changed
 
-      - type: "custom:monster-card"
+      - id: d2f1e0aea88e4c1a992f4ad5927a6b22  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: Motion outside
         filter:
           include:
-            - entity_id: "binary_sensor.*camera_person*"
+            - entity_id: binary_sensor.*camera_person*
               options:
                 secondary_info: last-changed
-            - entity_id: "binary_sensor.*camera*activity"
+            - entity_id: binary_sensor.*camera*activity
               options:
                 secondary_info: last-changed
 
-  - title: Debug
+  - id: 4  # Automatically created id
+    title: Debug
     icon: mdi:settings
     cards:
-      - type: "custom:monster-card"
+      - id: 6e2a8153e6f44499ae9cfb2bd95100c9  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All binary sensors
         filter:
           include:
             - domain: binary_sensor
-      - type: "custom:monster-card"
+      - id: 1d61262b27104c23abafc2f2a3c8c54c  # Automatically created id
+        type: custom:monster-card
         card:
           type: glance
           title: All cameras
         filter:
           include:
             - domain: camera
-      - type: "custom:monster-card"
+      - id: 74d5e37c06234f5ba137598819c6a609  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All climate
         filter:
           include:
             - domain: climate
-      - type: "custom:monster-card"
+      - id: 8276e4ecd5074d2cb493bdc7bead552d  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All covers
         filter:
           include:
             - domain: cover
-      - type: "custom:monster-card"
+      - id: 56214acdd8c24d7f9fdc1203992e5304  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All device trackers
         filter:
           include:
             - domain: device_tracker
-      - type: "custom:monster-card"
+      - id: e35da504c6d948dba9b29303bc4ef665  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All input booleans
         filter:
           include:
             - domain: input_boolean
-      - type: "custom:monster-card"
+      - id: 23205e5fe60c48b8a1736c3eb9b72b67  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All lights
         filter:
           include:
             - domain: light
-      - type: "custom:monster-card"
+      - id: 98e4b2848c924c0ca08bab94f4dd389c  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All media players
         filter:
           include:
             - domain: media_player
-      - type: "custom:monster-card"
+      - id: 3c898b5ee60e4c48902016dd35477ba7  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All sensors
         filter:
           include:
             - domain: sensor
-      - type: "custom:monster-card"
+      - id: eee0f718113c474ba448896317faff9c  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All sun
         filter:
           include:
             - domain: sun
-      - type: "custom:monster-card"
+      - id: c59058ab80c84e5bae509b350f8e682f  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All switches
         filter:
           include:
             - domain: switch
-      - type: "custom:monster-card"
+      - id: 13e76492f2cd4ceaba7524abd67e0ac6  # Automatically created id
+        type: custom:monster-card
         card:
           type: entities
           title: All zwave
