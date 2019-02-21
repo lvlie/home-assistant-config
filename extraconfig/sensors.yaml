@@ -46,17 +46,11 @@
     - type: load_5m
     - type: load_15m
 
-- platform: google_travel_time
+- platform: waze_travel_time
   name: Home to work
-  api_key: !secret gmaps_secret
   origin: zone.home
   destination: zone.work_leon
-- platform: google_travel_time
-  name: Work to home
-  api_key: !secret gmaps_secret
-  origin: zone.work_leon
-  destination: zone.home
-
+  region: EU
 - platform: waze_travel_time
   name: Leon to home
   origin: device_tracker.google_maps_109202381251367736104
@@ -72,6 +66,8 @@
   host: !secret nashost
   token: !secret plextoken
 
+- platform: launch_library
+
 - platform: hue
   ip_address: !secret huehost
   token: !secret huekey
@@ -83,6 +79,22 @@
 - platform: mijnafvalwijzer
   postcode: !secret postcode
   huisnummer: !secret huisnummer
+
+- platform: solaredge
+  api_key: !secret pvapi
+  site_id: !secret pvid
+  name: pv
+  monitored_conditions:
+    - current_power
+    - energy_today
+    - energy_this_month
+    - energy_this_year
+    - lifetime_energy
+
+- platform: dsmr
+  host: !secret dsmrhost
+  port: 2001
+  dsmr_version: 4
 
 - platform: template
   sensors:
@@ -130,10 +142,6 @@
       friendly_name: 'Trapkast lux'
       value_template: '{{states.sensor.trapkast_motion_sensor.attributes.lx}}'
       unit_of_measurement: 'lux'
-    toon_temperatuur:
-      friendly_name: 'Toon temperatuur'
-      value_template: '{{states.climate.toon_van_eneco.attributes.current_temperature }}'
-      unit_of_measurement: '°C'
 
     next_holiday:
       friendly_name: 'Next holiday'
@@ -161,7 +169,7 @@
       icon_template: mdi:calendar
 
     delta_temp_kamer:
-      value_template: '{{ ((float(states.sensor.toon_temperatuur.state)) - (float(states.sensor.outside_temperature.state))) | round(2) }}' 
-      unit_of_measurement: 'Graden'
+      value_template: '{{ ((float(states.sensor.living_room_thermostat_temperature.state)) - (float(states.sensor.outside_temperature.state))) | round(2) }}' 
+      unit_of_measurement: '°C'
       friendly_name: 'Delta temp Binnen - buiten'
       icon_template: "mdi:thermometer"

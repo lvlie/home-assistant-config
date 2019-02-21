@@ -10,7 +10,7 @@
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: sensor.toon_temperatuur
+        entity_id: sensor.living_room_thermostat_temperature
         above: 23
       - condition: state
         entity_id: binary_sensor.achterdeur
@@ -24,11 +24,11 @@
   action:
     - service: notify.family
       data_template:
-        message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur open te zetten"
+        message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.living_room_thermostat_temperature.state }} graden is, tijd om de achterdeur open te zetten"
     - service: tts.google_say
       entity_id: media_player.kitchen_speaker
       data_template:
-        message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur open te zetten"
+        message: "Het is nu buiten {{ states.sensor.delta_temp_kamer.state }} graden kouder dan binnen in de kamer waar het {{ states.sensor.living_room_thermostat_temperature.state }} graden is, tijd om de achterdeur open te zetten"
         language: 'nl'
 
 - alias: Bericht sturen als deur dicht moet
@@ -57,9 +57,9 @@
   action:
     - service: notify.family
       data_template:
-        message: "Het is nu buiten {{ (float(states.sensor.delta_temp_kamer.state))*-1 }} graden warmer dan binnen in kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur dicht te doen"
+        message: "Het is nu buiten {{ (float(states.sensor.delta_temp_kamer.state))*-1 }} graden warmer dan binnen in kamer waar het {{ states.sensor.living_room_thermostat_temperature.state }} graden is, tijd om de achterdeur dicht te doen"
     - service: tts.google_say
       entity_id: media_player.kitchen_speaker
       data_template:
-        message: "Het is nu buiten {{ (float(states.sensor.delta_temp_kamer.state))*-1 }} graden warmer dan binnen in kamer waar het {{ states.sensor.toon_temperatuur.state }} graden is, tijd om de achterdeur dicht te doen"
+        message: "Het is nu buiten {{ (float(states.sensor.delta_temp_kamer.state))*-1 }} graden warmer dan binnen in kamer waar het {{ states.sensor.living_room_thermostat_temperature.state }} graden is, tijd om de achterdeur dicht te doen"
         language: 'nl'

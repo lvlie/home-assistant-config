@@ -7,9 +7,6 @@ homeassistant:
   time_zone: !secret time_zone
   
   customize:
-    group.all_devices:
-      hidden: false
-      friendly_name: Presence
     camera.back_yard:
       friendly_name: "Back Yard"
     sensor.server_current_power:
@@ -22,10 +19,9 @@ automation: !include_dir_merge_list automation/
 binary_sensor: !include extraconfig/binary_sensor.yaml
 
 camera:
-  - platform: mjpeg
+  - platform: generic
     name: back_yard
-    mjpeg_url: !secret camurl_backyard
-    still_image_url: !secret camurlstill_backyard
+    still_image_url: !secret camurl_backyard
 
 cloud:
 
@@ -46,6 +42,10 @@ google:
   client_id: !secret gcal_id
   client_secret: !secret gcal_secret
 
+googlehome:
+  devices:
+    - host: !secret homeminitv
+
 group: !include_dir_merge_named groups/
 
 history:
@@ -54,8 +54,6 @@ history:
       - automation
       - calendar
       - groups
-      - light
-      - media_player
 
 http:
   base_url: !secret base_url
@@ -123,6 +121,8 @@ nest:
 
 notify: !include extraconfig/notify.yaml
 
+person:
+
 recorder:
   db_url: !secret mariadburl
   purge_keep_days: 60
@@ -132,8 +132,6 @@ recorder:
       - binary_sensor
       - calendar
       - groups
-      - light
-      - media_player
     entities:
       - sun.sun 
       - sensor.date
@@ -155,6 +153,8 @@ sonos:
 
 sun:
 
+system_health:
+
 switch: !include extraconfig/switch.yaml
 
 telegram_bot:
@@ -164,18 +164,44 @@ telegram_bot:
       - !secret telegram_chatid
       - !secret telegram_workid
 
-toon:
-  username: !secret email
-  password: !secret enecopw
-  consumer_key: !secret toonkey
-  consumer_secret: !secret toonsecret
-
 tts:
   - platform: google
     language: !secret language
 
 rfxtrx:
   device: /dev/ttyUSB0
+
+utility_meter:
+  daily_power_consumption_low:
+    source: sensor.power_consumption_low
+    cycle: daily 
+  daily_power_consumption_normal:
+    source: sensor.power_consumption_normal
+    cycle: daily
+  daily_power_production_low:
+    source: sensor.power_production_low
+    cycle: daily 
+  daily_power_production_normal:
+    source: sensor.power_production_normal
+    cycle: daily
+  daily_gas_consumption:
+    source: sensor.gas_consumption
+    cycle: daily 
+  monthly_power_consumption_low:
+    source: sensor.power_consumption_low
+    cycle: monthly
+  monthly_power_consumption_normal:
+    source: sensor.power_consumption_normal
+    cycle: monthly 
+  monthly_power_production_low:
+    source: sensor.power_production_low
+    cycle: monthly
+  monthly_power_production_normal:
+    source: sensor.power_production_normal
+    cycle: monthly 
+  monthly_gas_consumption:
+    source: sensor.gas_consumption
+    cycle: monthly
 
 weather:
   - platform: darksky

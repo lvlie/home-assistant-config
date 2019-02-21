@@ -12,11 +12,11 @@ voortuin:
   entities:
     - light.voortuin_oprit
     - binary_sensor.front_door_camera_person_detected
-    - binary_sensor.front_door_camera__looppad_activity
-    - binary_sensor.front_door_camera__voortuin_activity
+    - binary_sensor.front_door_camera_looppad_activity
+    - binary_sensor.front_door_camera_voortuin_activity
     - binary_sensor.front_door_camera_sound_detected
     - binary_sensor.garage_camera_person_detected
-    - binary_sensor.garage_camera__oprit_activity
+    - binary_sensor.garage_camera_oprit_activity
     - binary_sensor.garage_camera_sound_detected
     - cover.garagedeur
 

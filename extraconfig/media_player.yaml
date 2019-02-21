@@ -1,5 +1,4 @@
 - platform: plex
-  entity_namespace: 'plex'
 - platform: webostv
   host: !secret tvhost
   name: Living Room TV  

@@ -1,0 +1,18 @@
+device_tracker.e8d81969e959:
+  friendly_name: PS4pro
+sensor.power_consumption_phase_l2:
+  hidden: true
+sensor.power_consumption_phase_l3:
+  hidden: true
+sensor.power_production_phase_l2:
+  hidden: true
+sensor.power_production_phase_l3:
+  hidden: true
+sensor.voltage_sags_phase_l2:
+  hidden: true
+sensor.voltage_sags_phase_l3:
+  hidden: true
+sensor.voltage_swells_phase_l2:
+  hidden: true
+sensor.voltage_swells_phase_l3:
+  hidden: true

@@ -3,9 +3,7 @@
   verify_ssl: false
   username: !secret unifiid
   password: !secret unifipw
-  new_device_defaults:
-    track_new_devices: False
-    hide_if_away: False
+
 - platform: google_maps
   username: !secret glocmail
   password: !secret glocpass
