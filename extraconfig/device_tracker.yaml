@@ -1,3 +1,5 @@
+- platform: hue_custom
+
 - platform: unifi
   host: !secret nashost
   verify_ssl: false

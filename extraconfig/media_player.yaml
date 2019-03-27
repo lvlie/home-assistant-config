@@ -1,9 +1,10 @@
 - platform: plex
+
 - platform: webostv
   host: !secret tvhost
   name: Living Room TV  
   timeout: 5
-  file: webostv.conf
+  filename: webostv.conf
   turn_on_action:
     - service: switch.turn_on
       entity_id: switch.woonkamer_tv

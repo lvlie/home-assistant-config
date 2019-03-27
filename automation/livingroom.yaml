@@ -9,6 +9,7 @@
       below: 3.5
   condition:
     - condition: time
+      after: '16:59:59'
       before: '18:59:59'
   action:
     - service: hue.hue_activate_scene
@@ -27,6 +28,7 @@
       below: 3.5
   condition:
     - condition: time
+      after: '18:59:59'
       before: '22:00:00'
   action:
     - service: hue.hue_activate_scene
@@ -86,7 +88,7 @@
     entity_id: sensor.woonkamer_motion_sensor
     to: 'off'
     for:
-      minutes: 8
+      minutes: 30
   condition:
     - condition: time
       after: '5:30:00'
@@ -107,6 +109,9 @@
     value_template: '{{ state.attributes.elevation }}'
     above: 3.5
   condition:
+    - condition: time
+      after: '5:30:00'
+      before: '10:00:00'
     - condition: state
       entity_id: light.woonkamer
       state: 'on'

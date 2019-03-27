@@ -23,8 +23,6 @@ camera:
     name: back_yard
     still_image_url: !secret camurl_backyard
 
-cloud:
-
 config:
 
 conversation:
